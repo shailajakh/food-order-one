@@ -1,0 +1,377 @@
+
+<div>
+  <div id="backimg" class="head-sectionmnu">
+    <div class="logo"><img src="..//assets/visa-seeklogo.com.svg" loading="lazy" alt=""></div>
+    <div class="single-food-name">
+      <h2 class="heading text-white">PIZZA</h2>
+    </div>
+    <div class="new-menu-button-div">
+      <a routerLink="table-booking" class="new-menu-button w-inline-block">
+
+        <div class="div-block-49">
+          <div class="text-block-39"><i class="fas fa-chair"></i></div>
+        </div>
+        <div class="text-block-37">TABLE BOOKING</div>
+      </a>
+      <a routerLink="offer-promotion" class="new-menu-button w-inline-block">
+        <div class="div-block-49">
+          <div class="text-block-39"><i class="fas fa-dollar-sign"></i></div>
+        </div>
+        <div class="text-block-37">OFFERS & PROMOTIONS</div>
+      </a>
+
+      <a routerLink="delivary-charges" class="new-menu-button w-inline-block">
+        <div class="div-block-49">
+          <div class="text-block-39"><img src="../../assets/truck.svg" alt=""></div>
+        </div>
+        <div class="text-block-37">Delivery Charges</div>
+      </a>
+      <!-- sign-up section -->
+    </div>
+  </div>
+
+
+
+
+
+  <div class="row slid">
+    <div class="col-md-12">
+      <div id="pizza" class="tabs-menu w-tab-menu">
+        <a (click)="getEachItem(data.ID)" *ngFor="let data of navData; let ind=index;" data-w-tab="Tab1" class="tab-link-1 w-inline-block w-tab-link w--current">
+          <div [style.background-image]="'url(' + data.URL + ')'" class="div-block-9 cat-1"></div>
+          <div class="div-block-10">
+            <div class="text-block-6">{{data.Name}}</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row full">
+    <div class="col-md-9 bk">
+
+      <div class="row row-cols-1 row-cols-md-3 g-3">
+        <div *ngFor="let item of foodItems">
+          <div class="col">
+            <div class="card h-100">
+              <img [src]="item.URL" class="card-img-top" alt="Image ">
+              <div class="card-body">
+                <div class="inline">
+                  <h5 class="card-title">{{item.Name}}{{item.Name.length>10?"...................":".........................."}}</h5>
+                  <h5 class="price">{{item.Price| currency}}</h5>
+                </div>
+                <p class="card-text ">{{item.Description |slice:0:69 }}{{item.Description.length>69?"....":""}}</p>
+              </div>
+              <div class="card-footer">
+                <button type="button" class="btn bn" data-bs-toggle="modal" data-bs-target="#addOnModal" (click)="ADD_item(item.ID,item)">ADD</button><br>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- <div *ngFor="let item of foodItems">
+      <div class="fd-new-s1">
+        <div class="fd-new-s1-img">
+          <img [src]="item.URL" class="card-img-top" alt="Image ">
+        </div>
+        <div class="fd-new-s1-details">
+          <div class="div-block-43">
+            <div class="itmnamediv">
+              <div class="text-block-30 desc">{{item.Name}}</div>
+            </div>
+            <div class="itmnamediv pricr">
+              <div class="text-block-30 prc">{{item.Price}}$</div>
+            </div>
+          </div>
+          <p class="paragraph-11">{{item.Description |slice:0:55 }}{{item.Description.length>55?"....":""}}</p>
+          <a  class="fd-new-button w-button"data-bs-toggle="modal" data-bs-target="#addOnModal" (click)="addToCart(item.ID)">ADD</a>
+        </div>
+      </div>
+    </div> -->
+
+
+
+
+    <!--Add on Card part is here-->
+    <div class="col-md-2" *ngIf="showMe">
+      <div class="div-block-46">
+        <div class="head cartt">
+          <div class="div-block-50 d-flex">
+            <h1 class="heading-10">Cart</h1>
+            <div class="text-block-33"><h5>{{count}}</h5></div>
+          </div>
+        </div>
+        <div class="div-block-48">
+          <div class="food-listt" *ngFor="let cartdata of orderArray">
+            <div class="single-food-list">
+              <div class="food-name-div">
+                <div class="cart-food-name"><strong>{{cartdata.Name}}</strong></div>
+                <a class="btn customize-link" data-bs-toggle="modal" data-bs-target="#addOnModal">Customize <span class="customize-icon"><img src="../assets/orange.png" class="orange" alt=""></span></a>
+              </div>
+              <div class="cart-single-food-price">
+                <div>${{itemTotal }}
+                </div>
+                <div class="cart-food-name-copy">
+                  <a class="btn link-5" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <span class="food-name-ordered-number" (click)="RemoveButton(orderArray)"><img src="../assets/close.svg" class="red" alt=""></span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:5px;"><b>{{NoteMenuInfo}}</b></div>
+        <div class="main-page-cart-div">
+          <!-- <div class="sub-total">
+            <div class="text-block-34">Delivary-charges</div>
+            <div class="text-block-34"><span class="text-span-8 text-warning">${{totalAmount}}</span></div>
+          </div> -->
+          <div class="sub-total">
+            <div class="text-block-34">Sub total</div>
+            <div class="text-block-34"><span class="text-span-8 text-warning">${{TOTAL}}</span></div>
+          </div>
+
+          <button class="check btn btn-success " routerLink="/cart-page">CHECKOUT</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!--END of Card part is here-->
+  </div>
+
+
+
+
+
+
+
+  <button (click)="toogleTag()" data-w-id="ada4c9cb-8314-5a37-78ce-f06115b9a61c" class="main-cart-btn w-inline-block">
+    <img src="../../assets/cart.jpeg" class="cart" alt="">
+
+  </button>
+
+</div>
+
+
+<div class="container">
+  <!-- Button trigger modal -->
+  <!-- Modal -->
+  <div class="modal fade" id="addOnModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="heading-3">{{addon_item.Name}}</h3>
+          <button type="button" class="btn-close" (click)="RemoveButton(addon_item.ID)"data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="foood-img" id="getmot">
+            <!-- <div class="foood-img"id="getmot"> -->
+            <img [src]=addon_item.URL alt="pic" class="image-9">
+          </div>
+          <div class="food-para-modal">
+            <p class="paragraph-4">{{addon_item.Description}} </p>
+            <div class="div-block-7">
+              <div class="details-2">
+                <div class="food-cat-2"><span class="text-span-2 red">{{addon_item.FoodZone}}</span></div>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="varAddOns">
+            <div class="food-name-modl">
+              <h3 class="heading-2">Addons</h3>
+            </div>
+            <div *ngFor="let x of addon_item.AddOns">
+              <div *ngIf="x.IsRequireCustomerSelection ==='1'">
+                <div class="text-block">( Required)</div>
+                <div class="addon-list-selection-div-modal-2">
+                  <div class="chaddon-checkbox w-form">
+                    <form id="addonR-form" name="addonR-form" data-name="addonR Form">
+                      <label class="w-checkbox checkbox-field-2">
+                        <input type="checkbox" id="checkbox-3" name="checkbox-2" data-name="Checkbox 2" value="{{x.Name}}" (change)="onChangeAddonReq(x, $event.target.checked,addon_item)" class="w-checkbox-input checkbox-2">
+                        <span class="checkbox-label-2 w-form-label">{{x.Name}}- ${{x.Price}}</span>
+                      </label>
+                    </form>
+                    <div class="w-form-done"></div>
+                    <div class="w-form-fail"></div>
+                    <div class="number-input" *ngIf="AddOnMultiSelect">
+                      <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" (click)="getReqSpinnerValues(x)" class="minus"></button>
+                      <input class="quantity" min="0" id="{{x.ID}}" name="quantity" value="1" type="number">
+                      <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" (click)="getReqSpinnerValues(x)" class="plus"></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div *ngIf="x.IsRequireCustomerSelection ==='0'">
+                <div class="text-block">(Optional)</div>
+                <div class="addon-list-selection-div-modal-2">
+                  <div class="chaddon-checkbox w-form">
+                    <form id="addonR-form" name="addonR-form" data-name="addonR Form">
+                      <label class="w-checkbox checkbox-field-2">
+                        <input type="checkbox" id="checkbox-3" name="checkbox-2" data-name="Checkbox 2" value="{{x.Name}}" (change)="onChangeAddonOpt(x, $event.target.checked,addon_item)" class="w-checkbox-input checkbox-2">
+                        <span class="checkbox-label-2 w-form-label">{{x.Name}}- ${{x.Price}}</span>
+                      </label>
+                    </form>
+                    <div class="w-form-done"></div>
+                    <div class="w-form-fail"></div>
+                    <div class="number-input" *ngIf="AddOnMultiSelect">
+                      <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" (click)="getReqSpinnerValues(x)" class="minus"></button>
+                      <input class="quantity" min="0" id="{{x.ID}}" name="quantity" value="1" type="number">
+                      <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" (click)="getReqSpinnerValues(x)" class="plus"></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="varFoodTypes">
+            <div class="food-name-modl">
+              <h3 class="heading-2">Food Type</h3>
+             
+            </div>
+            <div *ngFor="let x of addon_item.FoodTypes">
+              <div *ngIf="x.IsRequireCustomerSelection=='1'">
+                <div class="text-block">(Required)</div>
+                <div class="addon-list-selection-div-modal-2 border-radius">
+                  <div class="chaddon-checkbox w-form">
+                    <form id="FoodR-form" name="FoodR-form" data-name="FoodR Form">
+                      <label class="w-checkbox checkbox-field-2">
+                        <input type="checkbox" id="checkbox-4" (change)="onChangeFoodType(x, $event.target.checked,addon_item)" name="checkbox-4" data-name="Checkbox 2" class="w-checkbox-input checkbox-2">
+                        <span class="checkbox-label-2 w-form-label">{{x.Name}}-{{x.Price}}</span>
+                      </label>
+                    </form>
+                   
+                    <div class="number-input" *ngIf="FoodTypeMultiSelect">
+                      <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus" (click)="getOptinalValues(x)"></button>
+                      <input class="quantity" min="0" id="{{x.ID}}" name="quantity" value="1" type="number">
+                      <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus" (click)="getOptinalValues(x)"></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div *ngIf="x.IsRequireCustomerSelection=='0'">
+                <div class="food-name-modl">
+                  <div class="text-block">(Optional)</div>
+                </div>
+                <div class="addon-list-selection-div-modal-2 border-radius">
+                  <div class="chaddon-checkbox w-form">
+                    <form id="FoodR-form" name="FoodR-form" data-name="FoodR Form">
+                      <label class="w-checkbox checkbox-field-2">
+                        <input type="checkbox" id="checkbox-4" (change)="onChangeFoodType(x, $event.target.checked,addon_item)" name="checkbox-4" data-name="Checkbox 2" class="w-checkbox-input checkbox-2">
+                        <span class="checkbox-label-2 w-form-label">{{x.Name}}-{{x.Price}}</span>
+                      </label>
+                    </form>
+                    <div class="number-input" *ngIf="FoodTypeMultiSelect">
+                      <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus" (click)="getOptinalValues(x)"></button>
+                      <input class="quantity" min="0" id="{{x.ID}}" name="quantity" value="1" type="number">
+                      <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus" (click)="getOptinalValues(x)"></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div *ngIf="varCombineItems">
+            <div *ngFor="let x of addon_item.CombineItems">
+              <div *ngIf="x.IsRequireCustomerSelection=='1'">
+                <div class="food-name-modl">
+                  <h3 class="heading-2">Extras</h3>
+                  <div class="text-block">(Required)</div>
+                </div>
+                <div class="addon-list-selection-div-modal-2 border-radius">
+                  <div class="chaddon-checkbox w-form">
+                    <form id="comboR-form" name="comboR-form" data-name="comboR Form">
+                      <label class="w-checkbox checkbox-field-2">
+                        <input type="checkbox" id="checkbox-4" name="checkbox-4" data-name="Checkbox 2" class="w-checkbox-input checkbox-2"><span class="checkbox-label-2 w-form-label">{{x.Name}} - <strong>{{x.Price|currency}}</strong></span>
+                      </label>
+
+                    </form>
+                    <div class="w-form-done"></div>
+                    <div class="w-form-fail"></div>
+
+                    <div class="number-input">
+                      <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus" (click)="getOptinalValues(x)"></button>
+                      <input class="quantity" min="0" id="{{x.ID}}" name="quantity" value="1" type="number">
+                      <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus" (click)="getOptinalValues(x)"></button>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <div *ngIf="x.IsRequireCustomerSelection=='0'">
+                <div class="food-name-modl">
+
+                  <h3 class="heading-2">Extras</h3>
+                  <div class="text-block">(Optional)</div>
+                </div>
+                <div class="addon-list-selection-div-modal-2 border-radius">
+                  <div class="chaddon-checkbox w-form">
+                    <form id="comboO-form" name="comboO-form" data-name="comboO Form">
+                      <label class="w-checkbox checkbox-field-2">
+                        <input type="checkbox" id="checkbox-4" name="checkbox-4" data-name="Checkbox 2" class="w-checkbox-input checkbox-2"><span class="checkbox-label-2 w-form-label">{{x.Name}} - <strong>{{x.Price}}</strong></span>
+                      </label>
+
+                    </form>
+                    <div class="w-form-done"></div>
+                    <div class="w-form-fail"></div>
+
+                    <div class="number-input">
+                      <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus" (click)="getOptinalValues(x)"></button>
+                      <input class="quantity" min="0" id="{{x.ID}}" name="quantity" value="1" type="number">
+                      <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus" (click)="getOptinalValues(x)"></button>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="food-note">
+            <div class="w-form">
+              <form id="email-form-3" name="email-form-3" data-name="Email Form 3">
+                <label for="name" class="notes-label">Notes to Cook</label>
+                <textarea (change)="getTextAreaInput($event.target.value)" placeholder="Type your notes" maxlength="5000" id="field-4" name="field-4" class="notes-text-field w-input"></textarea>
+              </form>
+              <div class="w-form-done">
+                <div>Thank you! Your submission has been received!</div>
+              </div>
+              <div class="w-form-fail">
+                <div>Oops! Something went wrong while submitting the form.</div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="add-qty-div" *ngIf="(addon_item.IsAddOnMultiSelect||addon_item.IsFoodTypeMultiSelect||addon_item.IsCombineItemMultiSelect)">
+            <h3 class="heading-2">Quantity</h3>
+            <div class="chaddon-checkbox w-form">
+              <div class="number-input">
+                <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
+                <input class="quantity" min="0" name="quantity" value="1" type="number">
+                <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+              </div>
+              <div class="w-form-done"></div>
+              <div class="w-form-fail"></div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="Submit"  style="width:400px" class="btn btn-warning" (click)="submitcart()">
+            ADD TO CART
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

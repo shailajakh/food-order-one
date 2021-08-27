@@ -1,0 +1,262 @@
+<div class="sign-up">
+    <div style="transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;">
+        <div class="menubox">
+            <nav class="navbar navbar-light bg-light nbar" >
+                <div class="container ">
+                <div class="logo">
+                  <a class="navbar-brand" href="#"><img src="../../assets/logo-13.png" loading="lazy" width="80" height="80" alt=""></a>
+                </div>
+                <div class="nav-bar-items">
+                    <div class="nav-signle">
+                      <a href="#" class="nav-link"><i class="fas fa-utensils"></i></a>
+                    </div>
+                    <div class="nav-signle">
+                      <a href="offer-promotion" class="nav-link"><i class="fas fa-dollar-sign"></i></a>
+                    </div>
+                    <div class="nav-signle">
+                      <a href="#" class="nav-link"><i class="fas fa-info-circle"></i></a>
+                    </div>
+                    <div class="nav-signle ">
+                      <a href="cart-page" class="nav-link"><i class="fas fa-cart-plus"></i></a>
+                      <div class="text-block-5">2</div>
+                    </div>
+                  </div>
+
+                </div>
+              </nav>
+              
+
+        </div> 
+        
+        
+          <div class="main-content user-login">
+              <div>
+                <div class="form-wrapper">
+                  <div class="fblock">
+                  <h2 class="heading-6">SIGN UP WITH LOCALMATE</h2>
+                  <div class="form-box">
+                    <h3 class="heading-7">Use your social profile to register</h3>
+                    <div class="social-box">
+                      <a href="https://mail.google.com/mail/u/0/#inbox" class="social-login w-inline-block"><img src="../../assets/G.png" alt="" class="image-11">
+                        <div class="div-block-42">
+                          
+                          <div class="text-block-26"> SIGN UP WITH GOOGLE</div>
+                        </div>
+                      </a>
+                      <!-- openModal ,opensignupModal-->
+                      <button  (click)="openModal()" class="social-login w-inline-block"><i class="fas fa-user-plus image-11"></i>
+                        <div class="div-block-42">
+                          <p style="padding:0px;color: black;">If Already Member:</p>
+                          <div class="text-block-in"> SIGN IN</div>
+                        </div>
+                      </button>
+                    
+ 
+                    
+                    <div class="div-block-6-copy">
+                      <div class="_1px-div-line"></div>
+                      <h3 class="heading-7">Or register now</h3>
+                      <div class="_1px-div-line"></div>
+                    </div>
+
+                      
+                     <form [formGroup]="registrationForm" (ngSubmit)="registration(registrationForm.value)" > 
+                      <div class="formGroup" >
+                      <div class ="" style="position: relative;margin-left: 25%;width:800px;">
+                         <label for="FormControlFirstName" ></label>
+                          <div class="col-md-5" >
+                            <input type="text" formControlName="FirstName" placeholder="FirstName" class="form-control " aria-label="Default" aria-describedby="inputGroup-sizing-default" required>
+                          </div>
+  
+                            <label for="FormControlLastName" ></label>
+                       
+                          <div class="col-md-5">
+                            <input type="text" formControlName="LastName" placeholder="LastName" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" required>                          
+                        </div>
+                        
+                            <label for="exampleFormControlSelect1" ></label>
+                          
+                          <div class="col-md-5">
+                            <select type="text" class="form-control" formControlName="Gender" name="Gender" id="Gender">
+                              <option value="SelectGender">Select Gender</option>
+                              <option value="Male">Male</option>
+                              <option value="Female">Female</option>
+                              <option value="Not prefer to dislose">Not prefer to dislose</option>
+                              </select> 
+                          </div>
+                        
+
+                            <label for="Age"  ></label>
+                          
+                          <div class="col-md-5">
+                            <input type="text" formControlName="Age" class="form-control" placeholder="Age" aria-label="Default" id="Age" aria-describedby="inputGroup-sizing-default" required>
+                          </div>
+
+                       
+
+                            <label for="DOB" ></label>
+                          
+                          <div class="col-md-5">
+                            <input type="text" formControlName="DOB" class="form-control" placeholder="DOB YYYY-MM-DD" aria-label="Default" aria-describedby="inputGroup-sizing-default" required>
+                          </div>
+                          
+                        
+                            <label for="FormControlPassword" ></label>
+                          
+                          <div class="col-md-5">
+                            <input type="password" formControlName="Password" placeholder="Password" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" required>
+                          </div>
+                          
+                          <label for="Mobile"></label>
+                          <div class="col-md-5">
+                            <input type="text" formControlName="Mobile" class="form-control" placeholder="Mobile" aria-label="Default" aria-describedby="inputGroup-sizing-default" >
+                          </div><br>
+                            <div class="col-md-7" style="display: flex;margin-right: 10px;">
+
+                              <label for="FormControlEmail"  ></label>
+                              <input type="text" formControlName="Email" placeholder="Email" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" required>
+                            
+                            <div class="col-md-4" style="margin-left: 10px;">
+                            <button class="btn btn-warning" type="button" (click)="requestOTP(registrationForm.value.Email)" >SEND OTP</button>
+                            </div>
+                          </div> <br>
+                              
+                          
+                        
+                        <div class="row" *ngIf="showOtpfeild">
+                            <label for="OTP"  ></label>
+                          <div class="col-md-5">
+                            <input type="text" formControlName="OTP" class="form-control" placeholder="OTP" aria-label="Default" aria-describedby="inputGroup-sizing-default" required>
+                          </div>
+                       
+                        </div><br>
+                        
+                      </div>
+                      <button type="submit" style="margin-left: 39%;"  class="btn btn-outline-success" ><b>Register</b></button>
+
+                    </div>
+                    </form> 
+                </div>
+              </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+<div *ngIf="showModal" class="customModal" >
+  
+  <div class="customModalBody"  >
+    <h2 class="h2div">WELCOME TO LOCAMATE</h2>
+    <form [formGroup]="modalForm" (ngSubmit)="submitClick()" >
+
+      <div style="margin-left:5%;margin-top: 15%;">
+      <div class="col-md-11" >
+        <label for="emailinput"></label>
+        <input type="text"  name="email" formControlName="email" id="emailinput" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="Email" />
+      </div>
+      <div class="col-md-11">
+        <label for="passwordInput"></label>
+        <input name="password" formControlName="password" id="passwordInput" type="password" placeholder="Password"class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"  />
+      </div><br><br>
+      <a class="fogotpw">Forgot Password?</a>
+      <br><br><br>
+      <button type="submit" routerLink="/"   class="btn col-md-11 btn-outline-success" data-bs-dismiss="!showModal" [disabled]="modalForm.invalid"><b>SIGN IN</b></button>
+      <br></div>
+    </form>
+    
+  </div>
+</div>
+
+<!-- Modal -->
+<div *ngIf="signupModal" class="customModal" >
+  
+  <div class="modal-dialog modal-lg customModalBody"  >
+    <h2 class="h2div">SIGN UP WITH LOCAMATE</h2>
+    <form [formGroup]="registrationForm" (ngSubmit)="registration(registrationForm.value)" > 
+      <div class="formGroup" >
+      <div class ="signup"  >
+
+        <div class="row" >
+          <label for="FormControlFirstName" ></label>
+          <div class="col-md-6" >
+            <input type="text" formControlName="FirstName" placeholder="FirstName" class="form-control " aria-label="Default" aria-describedby="inputGroup-sizing-default" required>
+          </div>
+
+          <div class="col-md-6" >
+            <label for="FormControlLastName" ></label> 
+            <input type="text" formControlName="LastName" placeholder="LastName" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" required>  
+          </div>
+        </div>
+        <div class="row">
+          
+          <div class="col-md-6" >
+            <label for="Age"  ></label>
+            <input type="text" formControlName="Age" class="form-control" placeholder="Age" aria-label="Default" id="Age" aria-describedby="inputGroup-sizing-default" required>
+          </div>
+          
+          <div class="col-md-6" >
+            <label for="DOB" ></label>
+            <input type="text" formControlName="DOB" class="form-control" placeholder="DOB YYYY-MM-DD" aria-label="Default" aria-describedby="inputGroup-sizing-default" required>
+          </div>
+        </div> 
+        <div class="row">
+          
+          <div class="col-md-6" >
+            <label for="exampleFormControlSelect1" ></label>
+            <select type="text" class="form-control" formControlName="Gender" name="Gender" id="Gender">
+              <option value="SelectGender">Select Gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Not prefer to dislose">Not prefer to dislose</option>
+              </select> 
+          </div>
+          
+          <div class="col-md-6" >
+            <label for="Mobile"></label>
+            <input type="text" formControlName="Mobile" class="form-control" placeholder="Mobile" aria-label="Default" aria-describedby="inputGroup-sizing-default" >
+          </div>
+        </div>
+
+          <div class="col-md-12">
+            <label for="FormControlPassword" ></label>
+            <input type="password" formControlName="Password" placeholder="Password" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" required>
+          </div><br>
+          <div class="col-md-12">
+            <label for="FormControlEmail"  ></label>
+          <input type="text" formControlName="Email" placeholder="Email" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" required>
+          </div><br>
+
+            <div class="col-md-12 reg" >
+            <button class="btn btn-outline-success"  type="button" (click)="requestOTP(registrationForm.value.Email)" >REGISTER</button>
+            </div><br>
+ 
+             <p class="infootp">OTP has been sent to your Email </p> 
+          
+             <div class="row">
+          
+              <div class="col-md-6" >
+                <label for="OTP"  ></label>
+            <input type="text" formControlName="OTP" class="form-control" placeholder="OTP" aria-label="Default" aria-describedby="inputGroup-sizing-default" required>
+              </div>
+              
+              <div class="col-md-3" >
+                <button type="submit"  class="btn btn-outline-success" ><b>SUBMIT</b></button>
+              </div>
+              <div class="col-md-3" >
+                <button type="submit"  class="btn back" (click)="!signupModal" ><b>BACK</b></button>
+              </div>
+            </div>   
+      </div>
+    </div>
+    </form> 
+    
+  </div>
+</div>
+

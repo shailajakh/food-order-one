@@ -1,0 +1,6 @@
+{
+    "/api": {
+      "target": "https://tketz.in",
+      "secure": false
+    }
+  }

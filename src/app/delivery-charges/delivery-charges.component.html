@@ -1,0 +1,135 @@
+
+<div id="backimg"class="head-sectionmnu">
+  <div class="logo"><img src="../assets/visa-seeklogo.com.svg" loading="lazy" alt=""></div>
+  <div class="single-food-name">
+    <h1 class="heading text-white">Delivery Charges</h1>
+  </div>
+  <div class="new-menu-button-div">
+    <a  routerLink="/table-booking" class="new-menu-button w-inline-block">
+
+      <div class="div-block-49">
+        <div class="text-block-39"><i class="fas fa-chair"></i></div>
+      </div>
+      <div class="text-block-37">TABLE BOOKING</div>
+  </a>
+    
+    <a routerLink="/offer-promotion" class="new-menu-button w-inline-block">
+      <div class="div-block-49">
+        <div class="text-block-39"><i class="fas fa-dollar-sign"></i></div>
+      </div>
+      <div class="text-block-37">OFFERS & PROMOTIONS</div>
+    </a>
+    <a routerLink="/" class="new-menu-button w-inline-block">
+      <div class="div-block-49">
+        <div class="text-block-39"><i class="fas fa-utensils"></i></div>
+      </div>
+      <div class="text-block-37">MENU</div>
+    </a>
+  </div>
+</div>
+
+ <div class="delivery-charges-page">
+     <div class="row">
+         <div class="col-md-12">
+          <div class="head-div-2 m-2">
+              <div class="text-block-56-2">Check Delivery Charges to your Location</div>
+            </div>
+         </div>
+     </div>
+       
+        <a data-w-id="cdfbb286-1826-f812-36d2-4b4eec8eac87" href="#" class="main-cart-btn w-inline-block">
+          <div class="text-block-41"></div>
+          <div class="text-block-36">2</div>
+        </a>
+        <div class="_52form w-form">
+            <div class="row">
+                <div class="col-md-3">
+
+                </div>
+
+                <div class="col-md-6">
+
+                  <form [formGroup]="addressForm" >
+                    <div class="form-group">
+                      <div class="map-div"></div>
+                      <div class="input-box rltv no">
+                        <label class="field-label">ENTER DELIVERY LOCATION</label></div>
+
+                      <div class="input-box rltv">
+                        <label for="FormControlDeliveryLocation" ></label>  
+                          <input type="text" class="form-control w-100"name="DeliveryLocation" formControlName="DeliveryLocation" id="FormControlDeliveryLocation" placeholder="Delivery Location">
+                      </div>
+
+                      <div class="input-box double">
+                        <div class="div-block-15 _1st">
+                          <label for="FormControlStreet" ></label>
+                            <input type="text" class="form-control" name="Street"formControlName="Street" id="FormControlStreet" aria-describedby="StreetHelp" placeholder="Street">
+                        </div>
+
+                        <div class="div-block-15 _1st">
+                          <label for="FormControlSuburb" ></label>
+                            <input type="text" class="form-control" name="Suburb" formControlName="Suburb"id="FormControlSuburb" placeholder="Suburb">
+                        </div>
+                      </div>
+
+                      <div class="input-box double">
+                        <div class="div-block-15 _1st">
+                          <label for="FormControlCity" ></label>                                
+                          <input type="text" class="form-control" name="City" formControlName="City" id="FormControlCity" aria-describedby="StreetHelp" placeholder="City">
+                        </div>
+
+                        <div class="div-block-15 _1st">
+                          <label for="FormControlPincode" ></label>
+                            <input name="Pincode" max="6" formControlName="Pincode" type="number" class="form-control " id="FormControlPincode" placeholder="Pincode">
+                        </div>
+                      </div>
+
+                      <div class="submit-button-container">
+                        <button type="submit" value="ADD LOCATION" data-wait="Please wait..." class="bg-success modal-button-2 w-button"(click)=Send(addressForm.value) >ADD LOCATION</button></div>
+                      </div>
+                    </form>
+
+
+              </div>
+
+              <div class="col-md-3">
+
+              </div>
+
+            </div>
+          
+     
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+              <div class="delivery-charges-div">
+                  <div class="alert">
+                    <div class="text-block-57">Distance to your Location</div>
+                    <div class="text-block-57 _2"> <span>{{distance}} Km</span></div>
+                  </div>
+                  <div class="alert">
+                    <div class="text-block-57">Minimum Order value to your location</div>
+                    <div class="text-block-57 _2"> <span>$ {{minOrder}}</span></div>
+                  </div>
+                  <div class="alert">
+                    <div class="text-block-57">Delivery Charges</div>
+                    <div class="text-block-57 _2"> <span>$ {{delCharges}}</span></div>
+                  </div>
+                </div>
+            </div>
+        </div>
+       
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+     

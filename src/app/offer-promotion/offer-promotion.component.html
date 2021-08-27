@@ -1,0 +1,464 @@
+  
+  <div class="home-body">
+  <div id="backimg"class="head-sectionmnu">
+    <div class="logo"><i class="fas fa-dollar-sign"></i></div>
+
+    <div class="single-food-name">
+      <h2  class="heading text-white">OFFERS & PROMOTIONS</h2>
+    </div>
+
+    <div class="new-menu-button-div">
+      <a  routerLink="/table-booking" class="new-menu-button w-inline-block">
+        <div class="div-block-49">
+          <div class="text-block-39"><i class="fas fa-chair"></i></div>
+        </div>
+        <div class="text-block-37">TABLE BOOKING</div>
+    </a>
+      
+      <a routerLink="/" class="new-menu-button w-inline-block">
+        <div class="div-block-49">
+          <div class="text-block-39"><i class="fas fa-utensils"></i></div>
+        </div>
+        <div class="text-block-37">MENU</div>
+      </a>
+      <a routerLink="/delivary-charges" class="new-menu-button w-inline-block">
+        <div class="div-block-49">
+          <div class="text-block-39"><img src="../../assets/truck.svg" alt=""></div>
+        </div>
+        <div class="text-block-37">DELIVARY CHARGES</div>
+      </a>
+      <!-- sign-up section -->
+
+    </div>
+  </div>
+
+  <div class="offers-main-container">
+    <div class="mc-top-container">
+      <div class="mc-top _1">
+        <div class="text-block-53">Be our <span class="star-fa _1 _2"><i class="fas fa-star"></i></span><span class="star-fa"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>member to get maximum benefit 
+          <a routerLink="notification-Models"
+           class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#notifiModel" class="how-to-link"><span class="text-span-14">HOW TO</span></a>
+          <span class="star-fa _1">‍</span></div>
+      </div>
+      <div class="mc-top _2">
+        <div class="text-block-53 _2">Check your membership 
+          <a routerLink="/sign-up" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Sign-in-model" class="how-to-link"><span class="text-span-14">SIGN IN</span></a><span class="star-fa _1">‍</span></div>
+      </div>
+    </div>
+    <div class="logged-user-details">
+      <div class="after-login-content">
+        <div class="user-status-message">
+          <div class="user-details">
+            <div class="profile-image"></div>
+            <div class="user-details-header">
+              <h4 class="heading-13 sh">George </h4>
+              <div class="tbtab"><span class="star-fa _12"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span></div>
+            </div>
+          </div>
+          <p class="paragraph-13">Your order value with us - <span class="text-span-13">$246</span></p>
+        </div>
+      </div>
+      <div>
+        <a href="index.html" class="button-5 w-button">GO BACK</a>
+      </div>
+    </div>
+    <div data-duration-in="500" data-duration-out="300" data-easing="ease-in-out" class="offere-tabs w-tabs">
+      <div class="tabs-menu-5 w-tab-menu" role="tablist">
+        
+          <a data-w-tab="Tab 1" (click)="PromotionGet_numStar_sel('one')" class="tbtab-single w-inline-block w-tab-link w--current" id="w-tabs-0-data-w-tab-0" role="tab" aria-controls="w-tabs-0-data-w-pane-0">
+            <div><span class="star-fa _12 st">*</span></div>
+          </a>
+          <a data-w-tab="Tab 2" (click)="PromotionGet_numStar_sel('two')" class="tbtab-single w-inline-block w-tab-link w--current" id="w-tabs-0-data-w-tab-1" role="tab" aria-controls="w-tabs-0-data-w-pane-0" >
+            <div><span class="star-fa _12 st">**</span></div>
+          </a>
+          <a data-w-tab="Tab 3" (click)="PromotionGet_numStar_sel('three')" class="tbtab-single w-inline-block w-tab-link w--current" id="w-tabs-0-data-w-tab-2" role="tab" aria-controls="w-tabs-0-data-w-pane-0" >
+            <div><span class="star-fa _12 st">***</span></div>
+          </a>
+          <a data-w-tab="Tab 4" (click)="PromotionGet_numStar_sel('four')" class="tbtab-single w-inline-block w-tab-link w--current" id="w-tabs-0-data-w-tab-3" role="tab" aria-controls="w-tabs-0-data-w-pane-0" >
+            <div><span class="star-fa _12 st">****</span></div>
+          </a>
+          <a data-w-tab="Tab 5" (click)="PromotionGet_numStar_sel('five')" class="tbtab-single w-inline-block w-tab-link w--current" id="w-tabs-0-data-w-tab-4" role="tab" aria-controls="w-tabs-0-data-w-pane-0" >
+            <div><span class="star-fa _12 st">*****</span></div>
+          </a>
+          
+
+
+      </div>
+      <div class="w-tab-content">
+        <div *ngIf="tab=='one'" >
+        <div data-w-tab="Tab 1" class="tb-tab-content w-tab-pane w--tab-active" id="w-tabs-0-data-w-pane-0" role="tabpanel" aria-labelledby="w-tabs-0-data-w-tab-0">
+          <div>
+            <div class="current-order-div">
+              <h4 class="heading-12">Current Offers</h4>
+            </div>
+            <div class="current-offers-section">
+              <div *ngFor="let a of promotionItems;let i=index;" >
+              <div class="co-single">
+                <div class="co-header">
+                  <div class="menu-header-lft-section">
+                    <div class="co-header-1 _1 food-items"></div>
+                    <div class="co-header-1 _2">
+                      <h4 class="offer-single-heading">{{a.Name}}</h4>
+                      <p class="available-on-label">Available on:</p>
+                      <div class="order-type-label" *ngIf="a.OnlineOrder==='1'">
+                        <span class="bullet"><i class="fas fa-circle"></i></span> Online Order
+                      </div>
+                      <div class="order-type-label" *ngIf="a.TableBooking==='1'">
+                        <span class="bullet"><i class="fas fa-circle"></i></span> Table Booking
+                      </div>
+                      <div class="order-type-label" *ngIf="a.DineIn==='1'">
+                        <span class="bullet"><i class="fas fa-circle"></i></span> Dine in</div>
+                    </div>
+                  </div>
+                  <div class="co-header-1 _3">
+                    <div class="offer-type-label">20% OFF</div>
+                    <div class="text-block-54">Coupon: <span class="promo-code">PKT007</span></div>
+                  </div>
+                </div>
+                <div class="line-2"></div>
+                <div class="co-food-items-div">
+                  <div class="head4">
+                    <div class="head4-single" *ngIf="(a.Type==='Food')">Item</div>
+                    <div class="head4-single">Offer</div>
+                    <div class="head4-single">Eligibility</div>
+                  </div>
+                  <div *ngFor="let b of a.Details;let j=index;" >
+                  <div class="item-single-table">
+                    <div class="head4-single item-name" *ngIf="(a.Type==='Food')">{{b.Item}}</div>
+                    <div class="head4-single item-offer">{{b.Offer}}</div>
+                    <div class="head4-single item-eligibility">{{b.Eligibility}}</div>
+                  </div>
+                </div>
+                  
+                  
+                  
+                </div>
+                <div class="offer-description">
+                  <h5 class="heading-11">Description</h5>
+                  <p class="paragraph-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare,.</p>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-w-tab="Tab 2" class="w-tab-pane w--tab-active" id="w-tabs-0-data-w-pane-1" role="tabpanel" aria-labelledby="w-tabs-0-data-w-tab-1" style="opacity: 1; transition: opacity 300ms ease 0s;">
+      <div *ngIf="tab=='two'" >
+        <div data-w-tab="Tab 2" class="tb-tab-content w-tab-pane" id="w-tabs-0-data-w-pane-1" role="tabpanel" aria-labelledby="w-tabs-0-data-w-tab-1">
+          <div>
+            <div class="current-order-div">
+              <h4 class="heading-12">Current Offers</h4>
+            </div>
+            <div class="current-offers-section">
+              <div *ngFor="let a of promotionItems;let i=index;" >
+                <div class="co-single">
+                  <div class="co-header">
+                    <div class="menu-header-lft-section">
+                      <div class="co-header-1 _1 food-items"></div>
+                      <div class="co-header-1 _2">
+                        <h4 class="offer-single-heading">{{a.Name}}</h4>
+                        <p class="available-on-label">Available on:</p>
+                        <div class="order-type-label" *ngIf="a.OnlineOrder==='1'">
+                          <span class="bullet"><i class="fas fa-circle"></i></span> Online Order
+                        </div>
+                        <div class="order-type-label" *ngIf="a.TableBooking==='1'">
+                          <span class="bullet"><i class="fas fa-circle"></i></span> Table Booking
+                        </div>
+                        <div class="order-type-label" *ngIf="a.DineIn==='1'">
+                          <span class="bullet"><i class="fas fa-circle"></i></span> Dine in</div>
+                      </div>
+                    </div>
+                    <div class="co-header-1 _3">
+                      <div class="offer-type-label">20% OFF</div>
+                      <div class="text-block-54">Coupon: <span class="promo-code">PKT007</span></div>
+                    </div>
+                  </div>
+                  <div class="line-2"></div>
+                  <div class="co-food-items-div">
+                    <div class="head4">
+                      <div class="head4-single" *ngIf="(a.Type==='Food')">Item</div>
+                      <div class="head4-single">Offer</div>
+                      <div class="head4-single">Eligibility</div>
+                    </div>
+                    <div *ngFor="let b of a.Details;let j=index;" >
+                    <div class="item-single-table">
+                      <div class="head4-single item-name" *ngIf="(a.Type==='Food')">{{b.Item}}</div>
+                      <div class="head4-single item-offer">{{b.Offer}}</div>
+                      <div class="head4-single item-eligibility">{{b.Eligibility}}</div>
+                    </div>
+                  </div>
+                    
+                    
+                    
+                  </div>
+                  <div class="offer-description">
+                    <h5 class="heading-11">Description</h5>
+                    <p class="paragraph-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare,.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div data-w-tab="Tab 3" class="w-tab-pane" id="w-tabs-0-data-w-pane-3" role="tabpanel" aria-labelledby="w-tabs-0-data-w-tab-3">
+        <div *ngIf="tab=='three'" >
+        <div data-w-tab="Tab 3" class="tb-tab-content w-tab-pane" id="w-tabs-0-data-w-pane-2" role="tabpanel" aria-labelledby="w-tabs-0-data-w-tab-2">
+          <div>
+            <div class="current-order-div">
+              <h4 class="heading-12">Current Offers</h4>
+            </div>
+            <div class="current-offers-section">
+              <div *ngFor="let a of promotionItems;let i=index;" >
+                <div class="co-single">
+                  <div class="co-header">
+                    <div class="menu-header-lft-section">
+                      <div class="co-header-1 _1 food-items"></div>
+                      <div class="co-header-1 _2">
+                        <h4 class="offer-single-heading">{{a.Name}}</h4>
+                        <p class="available-on-label">Available on:</p>
+                        <div class="order-type-label" *ngIf="a.OnlineOrder==='1'">
+                          <span class="bullet"><i class="fas fa-circle"></i></span> Online Order
+                        </div>
+                        <div class="order-type-label" *ngIf="a.TableBooking==='1'">
+                          <span class="bullet"><i class="fas fa-circle"></i></span> Table Booking
+                        </div>
+                        <div class="order-type-label" *ngIf="a.DineIn==='1'">
+                          <span class="bullet"><i class="fas fa-circle"></i></span> Dine in</div>
+                      </div>
+                    </div>
+                    <div class="co-header-1 _3">
+                      <div class="offer-type-label">20% OFF</div>
+                      <div class="text-block-54">Coupon: <span class="promo-code">PKT007</span></div>
+                    </div>
+                  </div>
+                  <div class="line-2"></div>
+                  <div class="co-food-items-div">
+                    <div class="head4">
+                      <div class="head4-single" *ngIf="(a.Type==='Food')">Item</div>
+                      <div class="head4-single">Offer</div>
+                      <div class="head4-single">Eligibility</div>
+                    </div>
+                    <div *ngFor="let b of a.Details;let j=index;" >
+                    <div class="item-single-table">
+                      <div class="head4-single item-name"*ngIf="(a.Type==='Food')">{{b.Item}}</div>
+                      <div class="head4-single item-offer">{{b.Offer}}</div>
+                      <div class="head4-single item-eligibility">{{b.Eligibility}}</div>
+                    </div>
+                  </div>
+                    
+                    
+                    
+                  </div>
+                  <div class="offer-description">
+                    <h5 class="heading-11">Description</h5>
+                    <p class="paragraph-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare,.</p>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div data-w-tab="Tab 4" class="w-tab-pane" id="w-tabs-0-data-w-pane-3" role="tabpanel" aria-labelledby="w-tabs-0-data-w-tab-3">
+      <div *ngIf="tab=='four'" >
+        <div data-w-tab="Tab 4" class="tb-tab-content w-tab-pane" id="w-tabs-0-data-w-pane-3" role="tabpanel" aria-labelledby="w-tabs-0-data-w-tab-3">
+          <div>
+            <div class="current-order-div">
+              <h4 class="heading-12">Current Offers</h4>
+            </div>
+            <div class="current-offers-section">
+              <div *ngFor="let a of promotionItems;let i=index;" >
+                <div class="co-single">
+                  <div class="co-header">
+                    <div class="menu-header-lft-section">
+                      <div class="co-header-1 _1 food-items"></div>
+                      <div class="co-header-1 _2">
+                        <h4 class="offer-single-heading">{{a.Name}}</h4>
+                        <p class="available-on-label">Available on:</p>
+                        <div class="order-type-label" *ngIf="a.OnlineOrder==='1'">
+                          <span class="bullet"><i class="fas fa-circle"></i></span> Online Order
+                        </div>
+                        <div class="order-type-label" *ngIf="a.TableBooking==='1'">
+                          <span class="bullet"><i class="fas fa-circle"></i></span> Table Booking
+                        </div>
+                        <div class="order-type-label" *ngIf="a.DineIn==='1'">
+                          <span class="bullet"><i class="fas fa-circle"></i></span> Dine in</div>
+                      </div>
+                    </div>
+                    <div class="co-header-1 _3">
+                      <div class="offer-type-label">20% OFF</div>
+                      <div class="text-block-54">Coupon: <span class="promo-code">PKT007</span></div>
+                    </div>
+                  </div>
+                  <div class="line-2"></div>
+                  <div class="co-food-items-div">
+                    <div class="head4">
+                      <div class="head4-single" *ngIf="(a.Type==='Food')">Item</div>
+                      <div class="head4-single">Offer</div>
+                      <div class="head4-single">Eligibility</div>
+                    </div>
+                    <div *ngFor="let b of a.Details;let j=index;" >
+                    <div class="item-single-table">
+                      <div class="head4-single item-name" *ngIf="(a.Type==='Food')">{{b.Item}}</div>
+                      <div class="head4-single item-offer">{{b.Offer}}</div>
+                      <div class="head4-single item-eligibility">{{b.Eligibility}}</div>
+                    </div>
+                  </div>
+                    
+                    
+                    
+                  </div>
+                  <div class="offer-description">
+                    <h5 class="heading-11">Description</h5>
+                    <p class="paragraph-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare,.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div data-w-tab="Tab 5" class="w-tab-pane" id="w-tabs-0-data-w-pane-4" role="tabpanel" aria-labelledby="w-tabs-0-data-w-tab-4">
+      <div *ngIf="tab=='five'" >
+        <div data-w-tab="Tab 5" class="tb-tab-content w-tab-pane" id="w-tabs-0-data-w-pane-4" role="tabpanel" aria-labelledby="w-tabs-0-data-w-tab-4">
+          <div>
+            <div class="current-order-div">
+              <h4 class="heading-12">Current Offers</h4>
+            </div>
+            <div class="current-offers-section">
+              <div *ngFor="let a of promotionItems;let i=index;" >
+                <div class="co-single">
+                  <div class="co-header">
+                    <div class="menu-header-lft-section">
+                      <div class="co-header-1 _1 food-items"></div>
+                      <div class="co-header-1 _2">
+                        <h4 class="offer-single-heading">{{a.Name}}</h4>
+                        <p class="available-on-label">Available on:</p>
+                        <div class="order-type-label" *ngIf="a.OnlineOrder==='1'">
+                          <span class="bullet"><i class="fas fa-circle"></i></span> Online Order
+                        </div>
+                        <div class="order-type-label" *ngIf="a.TableBooking==='1'">
+                          <span class="bullet"><i class="fas fa-circle"></i></span> Table Booking
+                        </div>
+                        <div class="order-type-label" *ngIf="a.DineIn==='1'">
+                          <span class="bullet"><i class="fas fa-circle"></i></span> Dine in</div>
+                      </div>
+                    </div>
+                    <div class="co-header-1 _3">
+                      <div class="offer-type-label">20% OFF</div>
+                      <div class="text-block-54">Coupon: <span class="promo-code">PKT007</span></div>
+                    </div>
+                  </div>
+                  <div class="line-2"></div>
+                  <div class="co-food-items-div">
+                    <div class="head4">
+                      <div class="head4-single" *ngIf="(a.Type==='Food')">Item</div>
+                      <div class="head4-single">Offer</div>
+                      <div class="head4-single">Eligibility</div>
+                    </div>
+                    <div *ngFor="let b of a.Details;let j=index;" >
+                    <div class="item-single-table">
+                      <div class="head4-single item-name"*ngIf="(a.Type==='Food')">{{b.Item}}</div>
+                      <div class="head4-single item-offer">{{b.Offer}}</div>
+                      <div class="head4-single item-eligibility">{{b.Eligibility}}</div>
+                    </div>
+                  </div>
+                    
+                    
+                    
+                  </div>
+                  <div class="offer-description">
+                    <h5 class="heading-11">Description</h5>
+                    <p class="paragraph-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare,.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+ 
+  <div class="modal" id="notifiModel" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Membership Program</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <ul>
+            <li><i class="fas fa-star"></i>- All signed up customers</li>
+            <li><i class="fas fa-star"></i><i class="fas fa-star"></i>- Customers those who dine or order $50+</li>
+            <li><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>- Customers who dine or order $100+</li>
+            <li><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>- Customers who dine or order $200+</li>
+            <li><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>- Customers who dine or order $500+</li>
+          </ul>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="Sign-in-model" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="login-modal-user l1u">
+            <h2 class="heading-8">WELCOME </h2>
+            <div class="form-box loginuserl1">
+              <h3 class="heading-7">Use your social profile to login</h3>
+              <div class="social-box-2">
+                <a href="#" class="social-login-2 w-inline-block"><img src="https://uploads-ssl.webflow.com/60140b1baf5a032198ec45e4/60153cb0f1455f0277433c55_G.png" alt="" class="image-11">
+                  <div class="div-block-42">
+                    <div class="text-block-26">SIGN IN WITH GOOGLE</div>
+                  </div>
+                </a>
+              </div>
+              
+              <div class="div-block-6-copy">
+                <div class="_1px-div-line-2 log"></div>
+                <h3 class="heading-7">or login now</h3>
+                <div class="_1px-div-line-2 log"></div>
+              </div>
+              <div class="w-form">
+                <form id="email-form" name="email-form" data-name="Email Form">
+                  <div class="form-field-wrapper">
+                    <div class="tblock _2">
+                      <input type="tel" class="text-field-5 w-input" maxlength="256" name="txtUserPhone-2" data-name="Txt User Phone 2" placeholder="Email or Phone Number" id="txtUserPhone-2" required="">
+                    </div>
+                    <div class="tblock _2"><input type="text" class="text-field-5 w-input" maxlength="256" name="txtUserPassword-2" data-name="Txt User Password 2" placeholder="Password" id="txtUserPassword-2" required="">
+                    </div>
+                    <div class="forgot-div">
+                      <a href="#" class="link-10">Forgot Password?</a>
+                    </div>
+                  </div><input type="submit" value="SIGN IN" data-wait="Please wait..." class="button-4 registration w-button">
+                  <div class="create-an-account-label">Don't have an account yet? <a routerLink="sign-up" data-w-id="2d7c75b3-0aad-3d75-5656-5e45559bd3c4" class="link-17">SIGN UP NOW</a>
+                  </div>
+                </form>
+                <div class="success-message w-form-done">
+                  <div>Thank you! Your submission has been received!</div>
+                </div>
+                <div class="w-form-fail">
+                  <div>Oops! Something went wrong while submitting the form.</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>

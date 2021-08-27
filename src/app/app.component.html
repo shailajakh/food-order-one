@@ -1,0 +1,16 @@
+
+ <div class="ndivcloswe text-danger ">
+  <p class="pday">OPENING HOURS: {{ day }}</p>
+  <div *ngFor="let item of hour; let ind=index;">
+    <div >
+      <p *ngIf="item.Day===day" class="ptime">&nbsp;{{item.StartTime}} AM : {{ item.EndTime }} PM</p>
+  </div> 
+</div>
+ 
+</div>
+
+<!-- <app-paypal-checkout></app-paypal-checkout> -->
+
+
+
+<router-outlet></router-outlet> 
