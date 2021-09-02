@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiserviceService } from '../apiservice.service';
 import { TokenStorageService } from '../service/token-storage.service';
+import { StorageLocalService } from '../storage-local.service';
 
 @Component({
   selector: 'app-offer-promotion',
@@ -9,10 +10,11 @@ import { TokenStorageService } from '../service/token-storage.service';
 })
 export class OfferPromotionComponent implements OnInit {
 
-  constructor(private apiserviceService: ApiserviceService,private localStorage : TokenStorageService) { }
-
+  constructor(private apiserviceService: ApiserviceService,private localStorage : TokenStorageService,private Lstoreage: StorageLocalService) { }
+user:any;
   ngOnInit(): void {
     this.PromotionGet_numStar(2);
+    this.user =this.Lstoreage.get_UserInfo();
   }
 
   tab='one';

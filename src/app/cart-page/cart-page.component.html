@@ -134,9 +134,9 @@
                   <div class="tabs w-tabs">
                     <div class="cart-tab w-tab-menu" role="tablist">
                       <label class="toggleSwitch nolabel" onclick="">
-                        <input type="checkbox" checked />
-                        <a></a>
-                        <span>
+                        <input type="checkbox" value="0" ng-model="checkfield" required data-error="This is an mandatory field" data-toggle="toggle" data-on="Yes" data-off="No" (change)="onChangeDeliveryTakeAway($event)"/>
+                        <a class="slide"></a>
+                        <span class="delivry-takeaway">
                           <span class="left-span">Delivery</span>
                           <span class="right-span">Take Away</span>
                         </span>											
@@ -150,43 +150,40 @@
                           </div>
                           <div class="c-d-t-c-selection-tab">
                             <div class="tabs-2 w-tabs">
-                              <div class="cart-delivery-time-tab w-tab-menu" role="tablist">
-                                <button data-w-tab="Tab 1" class="tab-element w-inline-block w-tab-link w--current" id="w-tabs-2-data-w-tab-0" href="" role="tab" aria-controls="w-tabs-2-data-w-pane-0" aria-selected="true">
-                                  <div>ASAP</div>
-                                </button>
-                                <button data-w-tab="Tab 2" class="tab-element w-inline-block w-tab-link" tabindex="-1" id="w-tabs-2-data-w-tab-1" href="" role="tab" aria-controls="w-tabs-2-data-w-pane-1" aria-selected="false"(click)="forLater_set()">
-                                 <div>For Later</div>
-                                </button>
+                              <div class="cart-tab w-tab-menu" role="tablist">
+                                <label class="toggleSwitch nolabel" onclick="">
+                                  <input type="checkbox" ng-model="checkfield" required data-error="This is an mandatory field" data-toggle="toggle" data-on="Yes" data-off="No" (change)="onChangedel_time($event)"/>
+                                  <a class="slide"></a>
+                                  <span class="delivry-takeaway">
+                                    <span class="left-span">ASAP</span>
+                                    <span class="right-span">For Later</span>
+                                  </span>											
+                                </label>
                               </div>
                               <div class="w-tab-content" >
                                 <div  class="asap w-tab-pane w--tab-active" id="w-tabs-2-data-w-pane-0" role="tabpanel" aria-labelledby="w-tabs-2-data-w-tab-0" >
-                                  <div *ngIf="forLater">
+                                  <div *ngIf="For_later_disp_input">
                                     <div class="div-block-17">
                                       <div class="text-block-12">Delivery Time: </div>
                                     </div>
                                     <div>
                                       <div class="delivery-for-late-div row">
-                                        <div class="choose-time-for-lter-field">
-                                          <div class="form-block-3 w-form">
-                                            <form  class="form-2">
-                                              <label for="txtForlaterDate-4" class="field-label-4">Date</label>
-                                              <input type="date" data-date-format="mm/dd/yy" class="for-later-date-field w-input w-80" maxlength="256" name="Date" data-name="Date" placeholder="DD:MM:YYYY" id="Date"></form>
-                                            
-                                          </div>
+                                        <form   class="form-2">
+                                        <div class="for_later " >
+                                        <label for="txtForlaterDate-4" >Date</label>
+                                        <input type="date" name="Date" data-name="Date" placeholder="MM/DD/YYYY" id="Date"  (change)=For_later_Dateinput($event)>
+                                          
                                         </div>
-                                        <div class="choose-time-for-lter-field">
-                                          <div class="form-block-4 w-form">
-                                            <form class="form-2">
-                                              <label for="Time" class="field-label-5">Time</label>
-                                              <input type="time" value="20:55" class="for-later-time-field half w-input" maxlength="256" name="Time"  placeholder="HH:MM" id="Time"></form>
-                                            
-                                          </div>
+                                        <div class="for_later ">
+                                        <label for="Time" >Time</label>
+                                        <input type="time" value="20:55" name="Time"  placeholder="HH:MM" id="Time" (change)=For_later_Timeinput($event)>
                                         </div>
+                                      </form>
                                       </div>
                                     </div>
                                   </div>
                                   <br>
-                                  <div class="wrpr">
+                                  <div class="wrpr" *ngIf="loggedin"  >
                                     <div>
                                       <div class="asap-button-div">
                                         <button  type="button" data-bs-toggle="modal" data-bs-target="#signin" class="button-cart login w-inline-block">
@@ -202,34 +199,54 @@
                                       <div class="checkout-as-guest-form">
                                         <div class="text-block-10">Checkout as Guest</div>
                                         <div class="w-form">
-                                          <form id="email-form-7" name="email-form-7" data-name="Email Form 7" class="form-4">
+                                          <form [formGroup]="guestform" class="form-4"(ngSubmit)="guest_detail()" novalidate>
                                             <div class="div-block-59">
-                                              <div class="div-block-58">
-                                                <label for="name">First Name</label>
-                                                <input type="text" class="w-input" maxlength="256" name="name" data-name="Name" placeholder="" id="name"></div>
-                                              <div class="div-block-58">
-                                                <label for="name-2">Last Name</label>
-                                                <input type="text" class="w-input" maxlength="256" name="name-2" data-name="Name 2" placeholder="" id="name-2"></div>
+                                                <div class="form-group  div-block-58">
+                                                    <label for="name">First Name</label>
+                                                    <input type="text" class=" form-control w-input" maxlength="256" formControlName="name" placeholder="" id="name">
+                                                </div>
+                                                <div *ngIf="guestform.controls['name'].invalid && (guestform.controls['name'].dirty || guestform.controls['name'].touched)" class="alert alert-danger">
+                                                    <div *ngIf="guestform.controls['name'].errors.required">
+                                                    Name is required.
+                                                    </div>
+                                                </div>
+                                            <div class="form-group  div-block-58"> 
+                                                <label for="LastName">Last Name</label>
+                                                <input type="text" class="form-control w-input" maxlength="256" formControlName="LastName" placeholder="" id="LastName">
+                                                <div *ngIf="guestform.controls['LastName'].invalid && (guestform.controls['LastName'].dirty || guestform.controls['LastName'].touched)" class="alert alert-danger">
+                                                    <div *ngIf="guestform.controls['LastName'].errors.required">
+                                                    Last Name is required.
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="div-block-59">
-                                              <div class="div-block-58">
-                                                <label for="name-3">Phone Number</label>
-                                                <input type="text" class="w-input" maxlength="256" name="name-3" data-name="Name 3" placeholder="" id="name-3"></div>
-                                              <div class="div-block-58">
-                                                <label for="name-4">Email Address</label>
-                                                <input type="text" class="w-input" maxlength="256" name="name-2" data-name="Name 2" placeholder="" id="name-2"></div>
-                                            </div><input type="submit" value="Proceed" data-wait="Please wait..." class="proceed-btn w-button">
-                                          </form>
-                                          <div >
-                                            <div>Thank you! Your submission has been received!</div>
-                                          </div>
-                                          <div class="w-form-fail">
-                                            <div>Oops! Something went wrong while submitting the form.</div>
-                                          </div>
                                         </div>
-                                        <div class="card-signed-user-details">
-                                          <div><span class="user-icon"></span>Signed in as <strong>John Doe</strong></div>
-                                        </div>
+                                        <div class="div-block-59">
+                                            <div class="form-group  div-block-58">
+                                                <label for="Phone">Phone Number</label>
+                                                <input type="number" class="form-control w-input" maxlength="15" formControlName="Phone" placeholder="Phone" id="Phone">
+                                            </div>
+                                            <div *ngIf="guestform.controls['Phone'].invalid && (guestform.controls['Phone'].dirty || guestform.controls['Phone'].touched)" class="alert alert-danger">
+                                                <div *ngIf="guestform.controls['Phone'].errors.required">
+                                                Phone num is required.
+                                                </div>
+                                            </div>
+                                            <div class="form-group  div-block-58">
+                                                <label for="Email ">Email </label>
+                                                <input type="Email" class="form-control w-input" maxlength="50" formControlName="Email" placeholder="Email" id="Email">
+                                            </div>
+                                            <div *ngIf="guestform.controls['Email'].invalid && (guestform.controls['Email'].dirty || guestform.controls['Email'].touched)" class="alert alert-danger">
+                                                <div *ngIf="guestform.controls['Email'].errors.required">
+                                                Email is required.
+                                                </div>
+                                            </div>
+                                        </div><br>
+                                            
+                                            <button type="submit" [disabled]="guestform.pristine || guestform.invalid" value="Proceed"
+                                            class="proceed-btn w-button">Proceed
+                                            </button>
+                                        </form>
+                                          
+                                          
                                       </div>
                                       <div class="text-block-23">Sign up and Join our membership program for discounts, customised promotions, loyalty programs and easy check-out.</div>
                                       <div class="description-img"><img src="images/wf3.jpg" loading="lazy" sizes="(max-width: 479px) 100vw, (max-width: 767px) 56vw, (max-width: 991px) 57vw, (max-width: 1279px) 33vw, 34vw" srcset="images/wf3-p-500.jpeg 500w, images/wf3.jpg 718w" alt="" class="image-10"></div>
@@ -237,6 +254,17 @@
                                     </div>
                                   </div>
                                 </div>
+                                <div *ngIf="!loggedin"></div>
+                                <div >
+                                  <div>Thank you! Your submission has been received!</div>
+                                </div>
+                                <div class="w-form-fail">
+                                  <div>Oops! Something went wrong while submitting the form.</div>
+                                </div>
+                              </div>
+                              <div class="card-signed-user-details">
+                                <div><span class="user-icon"></span>Signed in as <strong>{{user.Name}}</strong></div>
+                              </div>
                                 
                               </div>
                             </div>
@@ -246,22 +274,16 @@
                      
                     </div>
                   </div>
-                  <a data-w-id="e4ebb626-941c-e78d-44ac-3537b716df0d" href="#" class="main-cart-btn w-inline-block">
-                    <div class="text-block-41"></div>
-                    <div class="text-block-36">2</div>
-                  </a>
+                  
                 </div>
-                
-              </div>
-            </div>
-            </div>
-            <div class="cart-right hide">
+
+                <div class="cart-right hide">
                   <div class="cart-food-list">
                     <div class="food-listt">
                       <div class="single-food-list">
                         <div class="food-name-div">
                           <div class="cart-food-name"> Pizza x2</div>
-                          <a data-w-id="24441a21-60a9-8cf9-b392-47801ffbf1fd" href="#" class="customize-link">Customize <span class="customize-icon"></span></a>
+                          <a data-w-id="04c960b9-0c26-7944-b0d5-91d2a9919f6a" href="#" class="customize-link">Customize <span class="customize-icon"></span></a>
                         </div>
                         <div class="cart-single-food-price">
                           <div>$10</div>
@@ -273,7 +295,7 @@
                       <div class="single-food-list">
                         <div class="food-name-div">
                           <div class="cart-food-name"> Chicken bitriyani x2</div>
-                          <a data-w-id="1103795e-21f4-9586-da60-64f0c2d60545" href="#" class="customize-link">Customize <span class="customize-icon"></span></a>
+                          <a data-w-id="04c960b9-0c26-7944-b0d5-91d2a9919f79" href="#" class="customize-link">Customize <span class="customize-icon"></span></a>
                         </div>
                         <div class="cart-single-food-price">
                           <div>$20</div>
@@ -285,7 +307,7 @@
                       <div class="single-food-list">
                         <div class="food-name-div">
                           <div class="cart-food-name">Burger</div>
-                          <a data-w-id="1a5828ee-80fa-4714-5787-d536aba62d34" href="#" class="customize-link">Customize <span class="customize-icon"></span></a>
+                          <a data-w-id="04c960b9-0c26-7944-b0d5-91d2a9919f88" href="#" class="customize-link">Customize <span class="customize-icon"></span></a>
                         </div>
                         <div class="cart-single-food-price">
                           <div>$2</div>
@@ -297,7 +319,7 @@
                       <div class="single-food-list">
                         <div class="food-name-div">
                           <div class="cart-food-name"> Pizza x2</div>
-                          <a data-w-id="2c5b469c-35d5-dfda-13e4-e80b39d9482d" href="#" class="customize-link">Customize <span class="customize-icon"></span></a>
+                          <a  href="#" class="customize-link">Customize <span class="customize-icon"></span></a>
                         </div>
                         <div class="cart-single-food-price">
                           <div>$10</div>
@@ -309,7 +331,7 @@
                       <div class="single-food-list">
                         <div class="food-name-div">
                           <div class="cart-food-name"> Pizza x2</div>
-                          <a data-w-id="45502f2d-f6c6-b62f-0cad-7ede719d6e48" href="#" class="customize-link">Customize <span class="customize-icon"></span></a>
+                          <a data-w-id="04c960b9-0c26-7944-b0d5-91d2a9919fa6" href="#" class="customize-link">Customize <span class="customize-icon"></span></a>
                         </div>
                         <div class="cart-single-food-price">
                           <div>$10</div>
@@ -321,7 +343,7 @@
                       <div class="single-food-list">
                         <div class="food-name-div">
                           <div class="cart-food-name"> Pizza x2</div>
-                          <a data-w-id="c31171ab-e56f-f6ff-6254-e2dc99318fba" href="#" class="customize-link">Customize <span class="customize-icon"></span></a>
+                          <a data-w-id="04c960b9-0c26-7944-b0d5-91d2a9919fb5" href="#" class="customize-link">Customize <span class="customize-icon"></span></a>
                         </div>
                         <div class="cart-single-food-price">
                           <div>$10</div>
@@ -333,7 +355,7 @@
                       <div class="single-food-list">
                         <div class="food-name-div">
                           <div class="cart-food-name"> Pizza x2</div>
-                          <a data-w-id="2813a7f2-af72-102e-9dff-ee6586ca3ec5" href="#" class="customize-link">Customize <span class="customize-icon"></span></a>
+                          <a data-w-id="04c960b9-0c26-7944-b0d5-91d2a9919fc4" href="#" class="customize-link">Customize <span class="customize-icon"></span></a>
                         </div>
                         <div class="cart-single-food-price">
                           <div>$10</div>
@@ -345,7 +367,7 @@
                     </div>
                     <div class="bill-details-wrapper">
                       <div class="cooking-instruction-div">
-                        <a data-w-id="f1df506b-bb03-f67e-0914-44e14aca8348" href="#" class="link-7">Add special cooking instructions.</a>
+                        <a data-w-id="04c960b9-0c26-7944-b0d5-91d2a9919fd1" href="#" class="link-7">Add special cooking instructions.</a>
                       </div>
                       <div class="cooking-instruction-div">
                         <div class="form-block-2 no-margin w-form">
@@ -387,6 +409,10 @@
                     <div class="to-pay-amount">$45</div>
                   </div>
                 </div>
+              </div>
+            </div>
+            </div>
+        
             <div data-w-tab="Tab 2" class="w-tab-pane w--tab-active" id="w-tabs-0-data-w-pane-1" role="tabpanel" aria-labelledby="w-tabs-0-data-w-tab-1" style="opacity: 1; transition: opacity 300ms ease 0s;">
               <div  *ngIf="tab=='two'" >
               <div class="main-content cart-page">
@@ -417,6 +443,139 @@
                       <div class="text-block-41"></div>
                       <div class="text-block-36">2</div>
                     </a>
+                  </div>
+
+                  <div class="cart-right hide">
+                    <div class="cart-food-list">
+                      <div class="food-listt">
+                        <div class="single-food-list">
+                          <div class="food-name-div">
+                            <div class="cart-food-name"> Pizza x2</div>
+                            <a data-w-id="04c960b9-0c26-7944-b0d5-91d2a9919f6a" href="#" class="customize-link">Customize <span class="customize-icon"></span></a>
+                          </div>
+                          <div class="cart-single-food-price">
+                            <div>$10</div>
+                            <div class="cart-food-name-copy">
+                              <a href="#" class="link-5"><span class="food-name-ordered-number"></span></a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="single-food-list">
+                          <div class="food-name-div">
+                            <div class="cart-food-name"> Chicken bitriyani x2</div>
+                            <a data-w-id="04c960b9-0c26-7944-b0d5-91d2a9919f79" href="#" class="customize-link">Customize <span class="customize-icon"></span></a>
+                          </div>
+                          <div class="cart-single-food-price">
+                            <div>$20</div>
+                            <div class="cart-food-name-copy">
+                              <a href="#" class="link-5"><span class="food-name-ordered-number"></span></a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="single-food-list">
+                          <div class="food-name-div">
+                            <div class="cart-food-name">Burger</div>
+                            <a data-w-id="04c960b9-0c26-7944-b0d5-91d2a9919f88" href="#" class="customize-link">Customize <span class="customize-icon"></span></a>
+                          </div>
+                          <div class="cart-single-food-price">
+                            <div>$2</div>
+                            <div class="cart-food-name-copy">
+                              <a href="#" class="link-5"><span class="food-name-ordered-number"></span></a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="single-food-list">
+                          <div class="food-name-div">
+                            <div class="cart-food-name"> Pizza x2</div>
+                            <a  href="#" class="customize-link">Customize <span class="customize-icon"></span></a>
+                          </div>
+                          <div class="cart-single-food-price">
+                            <div>$10</div>
+                            <div class="cart-food-name-copy">
+                              <a href="#" class="link-5"><span class="food-name-ordered-number"></span></a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="single-food-list">
+                          <div class="food-name-div">
+                            <div class="cart-food-name"> Pizza x2</div>
+                            <a data-w-id="04c960b9-0c26-7944-b0d5-91d2a9919fa6" href="#" class="customize-link">Customize <span class="customize-icon"></span></a>
+                          </div>
+                          <div class="cart-single-food-price">
+                            <div>$10</div>
+                            <div class="cart-food-name-copy">
+                              <a href="#" class="link-5"><span class="food-name-ordered-number"></span></a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="single-food-list">
+                          <div class="food-name-div">
+                            <div class="cart-food-name"> Pizza x2</div>
+                            <a data-w-id="04c960b9-0c26-7944-b0d5-91d2a9919fb5" href="#" class="customize-link">Customize <span class="customize-icon"></span></a>
+                          </div>
+                          <div class="cart-single-food-price">
+                            <div>$10</div>
+                            <div class="cart-food-name-copy">
+                              <a href="#" class="link-5"><span class="food-name-ordered-number"></span></a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="single-food-list">
+                          <div class="food-name-div">
+                            <div class="cart-food-name"> Pizza x2</div>
+                            <a data-w-id="04c960b9-0c26-7944-b0d5-91d2a9919fc4" href="#" class="customize-link">Customize <span class="customize-icon"></span></a>
+                          </div>
+                          <div class="cart-single-food-price">
+                            <div>$10</div>
+                            <div class="cart-food-name-copy">
+                              <a href="#" class="link-5"><span class="food-name-ordered-number"></span></a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="bill-details-wrapper">
+                        <div class="cooking-instruction-div">
+                          <a data-w-id="04c960b9-0c26-7944-b0d5-91d2a9919fd1" href="#" class="link-7">Add special cooking instructions.</a>
+                        </div>
+                        <div class="cooking-instruction-div">
+                          <div class="form-block-2 no-margin w-form">
+                            <form id="email-form-5" name="email-form-5" data-name="Email Form 5"><input type="text" class="text-field-2 dark w-input" maxlength="256" name="txtCouponCode-4" data-name="Txt Coupon Code 4" placeholder="Enter valid coupon code" id="txtCouponCode-4">
+                              <div class="coupon-statsu-message success"><span class="text-span-7"></span>Coupon code applied successfully</div>
+                              <div class="coupon-statsu-message invalid"><span class="text-span-7"></span>Coupon code invalid/expired.</div>
+                            </form>
+                            <div class="w-form-done">
+                              <div>Thank you! Your submission has been received!</div>
+                            </div>
+                            <div class="w-form-fail">
+                              <div>Oops! Something went wrong while submitting the form.</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="billing-details-cart">
+                          <div class="text-block-22">Bill Details</div>
+                          <div class="billing-details-single-div">
+                            <div class="item-data-txt">Item Total</div>
+                            <div class="item-data-txt">$30</div>
+                          </div>
+                          <div class="billing-details-single-div">
+                            <div class="item-data-txt">Promotions on category</div>
+                            <div class="item-data-txt applied">$6</div>
+                          </div>
+                          <div class="billing-details-single-div">
+                            <div class="item-data-txt">Delivery Charge</div>
+                            <div class="item-data-txt">$5</div>
+                          </div>
+                          <div class="billing-details-single-div">
+                            <div class="item-data-txt">Taxes &amp; Charges</div>
+                            <div class="item-data-txt">$2</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="payment-div _2">
+                      <div class="topay">TOTAL</div>
+                      <div class="to-pay-amount">$45</div>
+                    </div>
                   </div>
                 </div>
                 
@@ -754,3 +913,4 @@
     </div>
   </div>
 </div>
+

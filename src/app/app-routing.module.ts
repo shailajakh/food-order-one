@@ -15,6 +15,8 @@ import { TableBookingComponent } from './table-booking/table-booking.component';
 const routes: Routes = [
 
   { path :'', component : HomePageComponent },
+  
+  { path :'home', component : HomePageComponent },
   { path :'sign-up', component : SignUpComponent},
   
   { path :'table-booking', component : TableBookingComponent },

@@ -41,7 +41,7 @@ import { StorageLocalService } from './storage-local.service';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    CreditCardDirectivesModule
+    CreditCardDirectivesModule,
   ],
   providers: [ApiserviceService,StorageLocalService,
               { provide: HTTP_INTERCEPTORS,

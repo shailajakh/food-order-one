@@ -550,8 +550,11 @@ img {
   align-items: center;
 }
 .choose-time-for-lter-field {
-  width: auto;
+  width: 120px;
   margin-right: 10px;
+  display: inline-flex;
+  border:2px solid black;
+  height: 40px;
 }
 .w-form {
   margin: 0 0 15px;
@@ -574,18 +577,19 @@ label {
   display: none;
 }
 .for-later-date-field {
-  width: 120px;
+  width: 150px;
   margin-bottom: 0px;
   border-style: solid;
-  border-width: 1px;
-  border-color: hsla(0, 0%, 78%, 0.95);
+  border-width: 2px;
+  border-color: hsla(0, 6%, 21%, 0.95);
+  display: inline-flex;
 }
 .w-input, .w-select {
   display: block;
-  height: 38px;
+  height: 40px;
   padding: 8px 12px;
   font-size: 14px;
-  line-height: 1.428571429;
+  line-height: 1.528571429;
   color: #333333;
   border: 1px solid #cccccc;
 }
@@ -854,9 +858,7 @@ input.w-button {
   width: auto;
   margin-right: 10px;
 }
-.form-block-3 {
-  margin-bottom: 0px;
-}
+
 .form-2 {
   display: flex;
   -webkit-box-orient: vertical;
@@ -1647,22 +1649,19 @@ input[type="checkbox"], input[type="radio"] {
 
 /*  Toggle Switch  */
 
-.toggleSwitch span span {
-	display: none;
-}  
+
   
 .toggleSwitch {
 	display: inline-block;
-	height: 18px;
+	height: 40px;
 	position: relative;
 	overflow: visible;
 	padding: 0;
 	cursor: pointer;
-	width: 200px;
+	width: 350px;
 	background-color: #fafafa;
-	border: 1px solid #ccc;
 	border-radius:5px;
-	height:34px;
+
 }
 .toggleSwitch * {
 	-webkit-box-sizing: border-box;
@@ -1671,8 +1670,7 @@ input[type="checkbox"], input[type="radio"] {
 }
 .toggleSwitch label,
 .toggleSwitch > span {
-	line-height: 20px;
-	height: 20px;
+
 	vertical-align: middle;
 }
 .toggleSwitch input:focus ~ a,
@@ -1693,7 +1691,7 @@ input[type="checkbox"], input[type="radio"] {
 .toggleSwitch > span {
 	position: absolute;
 	left: 0;
-	width: calc(100% - 6px);
+	width: 100%;
 	margin: 0;
 	text-align: left;
 	white-space: nowrap;
@@ -1701,33 +1699,31 @@ input[type="checkbox"], input[type="radio"] {
 }
 .toggleSwitch > span span {
 	position: absolute;
-	top: 0;
+	top: 6px;
 	left: 0;
-	z-index: 5;
+	z-index: 2;
 	display: block;
 	width: 50%;
 	margin-left: 50px;
 	text-align: left;
 	font-size: 0.9em;
 	width: auto;
-	left: 0;
-	top: -1px;
 	opacity: 1;
-	width:40%;
+	width:50%;
 	text-align: center;
-  line-height:34px;
+  height: 40px;
 }
 .toggleSwitch a {
 	position: absolute;
 	right: 50%;
-	z-index: 4;
+	z-index: 0;
 	display: block;
 	top: 0px;
-	bottom: 3px;
+	bottom: 0px;
 	padding: 0;
-	left: 3px;
+	left: 0px;
 	width: 50%;
-	background-color:green;
+	background-color:rgb(57, 175, 57);
 	border-radius: 4px;
 	-webkit-transition: all 0.2s ease-out;
 	-moz-transition: all 0.2s ease-out;
@@ -1755,16 +1751,15 @@ input[type="checkbox"], input[type="radio"] {
 	height: 100%;
 	position: absolute;
 	left: 0;
-	top: -2px;
-	/* background-color: #fafafa;
-	border: 1px solid #ccc; */
-	border-radius: 30px;
+	top: 0px;
+	background-color: transparent;
+//	border: 1px solid #ccc;
 	-webkit-transition: all 0.2s ease-out;
 	-moz-transition: all 0.2s ease-out;
 	transition: all 0.2s ease-out;
 }
 .toggleSwitch input:checked ~ a {
-	left: calc(50% - 3px);
+	left: calc(50% );
 }
 .toggleSwitch input:checked ~ span:before {
 	/* border-color: #0097D1;
@@ -1780,20 +1775,7 @@ input[type="checkbox"], input[type="radio"] {
 	color:#FFF;
 }
 /* Switch Sizes */
-.toggleSwitch.large {
-	width: 60px;
-	height: 27px;
-}
-.toggleSwitch.large a {
-	width: 27px;
-}
-.toggleSwitch.large > span {
-	height: 29px;
-	line-height: 28px;
-}
-.toggleSwitch.large input:checked ~ a {
-	left: 41px;
-}
+
 .toggleSwitch.large > span span {
 	font-size: 1.1em;
 }
@@ -1801,18 +1783,16 @@ input[type="checkbox"], input[type="radio"] {
 	left: 50%;
 }
 .toggleSwitch.xlarge {
-	width: 80px;
-	height: 36px;
+	width: 100%;
 }
 .toggleSwitch.xlarge a {
-	width: 36px;
+	width: 50px;
 }
 .toggleSwitch.xlarge > span {
-	height: 38px;
-	line-height: 37px;
+	
 }
 .toggleSwitch.xlarge input:checked ~ a {
-	left: 52px;
+	left: 50px;
 }
 .toggleSwitch.xlarge > span span {
 	font-size: 1.4em;
@@ -1823,9 +1803,20 @@ input[type="checkbox"], input[type="radio"] {
 
   /*  End Toggle Switch  */
 
-
-
-
+ 
+//delivary and take away
+.delivry-takeaway{
+    width: 3500px;
+    height: 40px;
+    border: 4px solid #60b246;
+    font-family: Montserrat, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+}
+.slide{
+  height: 40px;
+}
 
 
 

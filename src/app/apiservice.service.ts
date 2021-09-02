@@ -3,6 +3,7 @@ import { Headers ,Http  } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { TokenStorageService } from './service/token-storage.service';
+import { StorageLocalService } from './storage-local.service';
 
 
 
@@ -24,7 +25,7 @@ export interface Person{
 export class ApiserviceService {
 
 
-  constructor(private _http : HttpClient ,private tokenStorage : TokenStorageService) {}
+  constructor(private _http : HttpClient ,private tokenStorage : TokenStorageService,private Lstoreage: StorageLocalService) {}
 
   private Token;
 
@@ -219,20 +220,22 @@ Validateuser1(email,password):any{
 
 // 6th post
 
-UserAddressInsert(body:any):any{
-  // var body={
-  //   'GUID':'5465646',
-  //   'Name':user.Name,
-  //   'Mobile':user.Mobile,
-  //   'Email':user.Email,
-  //   'AddressType':user.AddressType,
-  //   'DeliveryLocation':user.DeliveryLocation,
-  //   'Street':user.Street,
-  //   'Suburb':user.Suburb,
-  //   'City':user.City,
-  //   'Pincode':user.Pincode
+UserAddressInsert(user:any):any{
+  let guid= this.Lstoreage.getData("USER_GUID");
+
+  var body={
+    'GUID':guid,
+    'Name':user.Name,
+    'Mobile':user.Mobile,
+    'Email':user.Email,
+    'AddressType':user.AddressType,
+    'DeliveryLocation':user.DeliveryLocation,
+    'Street':user.Street,
+    'Suburb':user.Suburb,
+    'City':user.City,
+   'Pincode':user.Pincode
     
-  // };
+   };
 
   return this._http.post<any>('https://tketz.in/api/wm/UserAddressInsert',body);
 }
@@ -240,19 +243,21 @@ UserAddressInsert(body:any):any{
 // 7th post
 
 
-UserAddressUpdate():any{
+UserAddressUpdate(user:any):any{
+  let guid= this.Lstoreage.getData("USER_GUID");
+
   var body={
-    'ID':'2',
-    'GUID':'5465646',
-    'Name':'Smith',
-    'Mobile':'854625',
-    'Email':'smith%40s.com',
-    'AddressType':'home',
-    'DeliveryLocation':'123%20kmkmkm%20kmkmk',
-    'Street':'main%20st',
-    'Suburb':'sdsds',
-    'City':'city%20name',
-    'Pincode':'8546'
+    'ID': user.ID,
+    'GUID': guid,
+    'Name': user.Name,
+    'Mobile': user.Mobile,
+    'Email':user.Email,
+    'AddressType':user.AddressType,
+    'DeliveryLocation':user.DeliveryLocation,
+    'Street':user.Street,
+    'Suburb':user.Suburb,
+    'City':user.City,
+    'Pincode':user.Pincode
     
   };
 

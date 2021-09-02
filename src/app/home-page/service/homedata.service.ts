@@ -16,7 +16,6 @@ export class HomedataService {
 
   getCurrentActivedNumber(newNumber: any) {
     this.subject.next(newNumber);
-    
   }
 
   setCurrentItemId(idToRemoveItem: any) {

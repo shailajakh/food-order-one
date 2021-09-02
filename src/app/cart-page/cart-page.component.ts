@@ -1,7 +1,10 @@
+import { value } from './../foodorder.model';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ApiserviceService } from '../apiservice.service';
 import { TokenStorageService } from '../service/token-storage.service';
+import { StorageLocalService } from '../storage-local.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-cart-page',
@@ -37,7 +40,9 @@ export class CartPageComponent implements OnInit {
     
     });
     registrationForm: FormGroup;
-  constructor(private apiserviceService: ApiserviceService,private localStorage : TokenStorageService,private fb: FormBuilder) { }
+  constructor(private apiserviceService: ApiserviceService,private localStorage : TokenStorageService,private fb: FormBuilder,private Lstoreage: StorageLocalService) { 
+    
+  }
 
   isFormSubmitted = false;
   RADIO_LIST = [
@@ -46,8 +51,19 @@ export class CartPageComponent implements OnInit {
     { name: 'Online Payment', value: 'online', checked: false }
   ];
 
+  user:any;
+  guestform: FormGroup;
   ngOnInit(): any {
     
+    
+
+      this.guestform = this.fb.group({
+         name: ['', Validators.required ],
+         LastName: ['', Validators.required ],
+         Phone:['', Validators.required ],
+         Email:['']
+      });
+      this.cart_Display();
      // this.sharedService.currentMessage.subscribe(msg => this.cartItemCount = msg);
      this.registrationForm = this.fb.group({
       FirstName: ['',Validators.required],
@@ -59,9 +75,9 @@ export class CartPageComponent implements OnInit {
       Mobile:['',Validators.required],
       OTP:['',Validators.required],
       Email:['',Validators.compose([Validators.required,Validators.email])]
-       
    
      });
+     this.user =this.Lstoreage.get_UserInfo();
      let getCheckedRadio = null
     this.RADIO_LIST.forEach(o => {
       if (o.checked)
@@ -86,8 +102,10 @@ export class CartPageComponent implements OnInit {
   }
 
   userAddress(user:any){
+
+    let guid= this.Lstoreage.getData("USER_GUID");
     var body={
-      'GUID':this.user_guid,
+      'GUID':guid,
       'Name':user.Name,
       'Mobile':user.Mobile,
       'Email':user.Email,
@@ -127,6 +145,9 @@ export class CartPageComponent implements OnInit {
 user_guid:any;
 welcome=false;
 username:string;
+USER_logedin=false;
+userName:any;
+userEmail:any;
 submitClick(data){
     console.log(data);
     this.apiserviceService.Validateuser1(data.email,data.password).subscribe((success)=>{
@@ -135,7 +156,13 @@ submitClick(data){
       this.loggedin=false;
       this.showaddress=true;
       this.welcome=true;
+     // this.USER_logedin=true;
       this.user_guid=success.Result.GUID;
+      this.userName= success.Result.FirstName;
+      this.userEmail= success.Result.Email;
+      this.Lstoreage.setData("USER_NAME",this.userName);
+      this.Lstoreage.setData("USER_GUID",this.user_guid);
+      this.Lstoreage.setData("USER_EMAIL",this.userEmail);
       console.log("guid",this.user_guid);
       this.useraddressGet(this.user_guid);
       this.username=success.Result.FirstName;
@@ -164,7 +191,7 @@ submitClick(data){
     };
     console.log("reg",body);
    return  this.apiserviceService.Userinsert(body).subscribe((Response)=>
-    console.warn(Response));
+    console.log(Response));
     
   }
 
@@ -211,7 +238,64 @@ submitClick(data){
       }
     }
 
+    onChangeDeliveryTakeAway($event){
+   
+      if($event.target.checked){
+        console.log("take away",$event.target.checked);
+      }
+      else{
+        
+        console.log("delivery",$event.target.checked)
+      }
+    
+    }
 
+    For_later_disp_input=false;
+
+    onChangedel_time($event){
+   
+      if($event.target.checked){
+        this.For_later_disp_input=true;
+        console.log("For Later",$event.target.checked);
+      }
+      else{
+        this.For_later_disp_input=false;
+        console.log("ASAP",$event.target.checked);
+      }
+    
+    }
+    For_later_Timeinput($event){
+      console.log($event.target.value);
+
+
+        const str = $event.target.value;
+        const year = Number(str[4]);
+        const month = Number(str[2]);
+        const date = Number(str[3]);
+
+        console.log("Date=>"+ month+":"+date+":"+year);
+          
+
+    }
+    For_later_Dateinput($event){
+      console.log($event.target.value);
+    }
+
+   
+
+    guest_detail(){
+      debugger;
+      console.log(this.guestform.value);
+      debugger;
+    }
+    subscription: Subscription;
+
+    cart_Display(){
+    this.subscription = this.Lstoreage.getcartMessage()
+    .subscribe(message => {
+      console.log("cart of cart page",message)
+    })
+    }
 
 
 }
