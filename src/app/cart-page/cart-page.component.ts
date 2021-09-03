@@ -297,5 +297,17 @@ submitClick(data){
     })
     }
 
+    totalTotal:any=0;
+    totalDel_charges:any=0;
+    minOrder:any=0;
+    delCharges:any=0;
+    Display_cart(){
+      this.totalTotal = this.Lstoreage.getData("distance");
+      this.minOrder = this.Lstoreage.getData("minOrder");
+      this.delCharges = this.Lstoreage.getData("delCharges");
+
+    }
+
+
 
 }

@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { ApiserviceService } from '../apiservice.service';
 import { TokenStorageService } from '../service/token-storage.service';
+import { StorageLocalService } from '../storage-local.service';
 
 
 @Component({
@@ -12,16 +13,16 @@ import { TokenStorageService } from '../service/token-storage.service';
 })
 export class DeliveryChargesComponent implements OnInit {
   addressForm = new FormGroup({
-    DeliveryLocation :new FormControl(''),
-    Street :new FormControl(''),
-    Suburb :new FormControl(''),
-    City :new FormControl(''),
+    DeliveryLocation :new FormControl('',[Validators.required]),
+    Street :new FormControl('',[Validators.required]),
+    Suburb :new FormControl('',[Validators.required]),
+    City :new FormControl('',[Validators.required]),
     Pincode :new FormControl('',[Validators.required, Validators.minLength(4),Validators.maxLength(6)]),
     
     });
   geocoder: google.maps.Geocoder;
 
-  constructor(private apiserviceService: ApiserviceService,private localStorage : TokenStorageService) { }
+  constructor(private apiserviceService: ApiserviceService,private localStorage : TokenStorageService,private Lstoreage: StorageLocalService) { }
 
   ngOnInit(): void {
     //this.findLocation("bangalore");
@@ -85,6 +86,10 @@ findLocation(address:any) {
         } else {
             return false;
         }
+        this.Lstoreage.setData("distance",this.distance);
+        this.Lstoreage.setData("minOrder",this.minOrder);
+        this.Lstoreage.setData("delCharges",this.delCharges);
+
       },
       error => console.log("User sendLanLat failed!",error));
   }

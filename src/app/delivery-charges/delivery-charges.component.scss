@@ -94,17 +94,12 @@
   }
   
   .logo {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
+   
+        padding-bottom: 9rem !important;
     width: 70px;
     margin-bottom: auto;
     padding: 10px;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
+    
     flex-direction: column;
     background-color: transparent;
   }
@@ -120,18 +115,10 @@
   }
   
   .new-menu-button-div {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
+    
+    
     flex-direction: column;
-    -webkit-box-align: start;
-    -webkit-align-items: flex-start;
-    -ms-flex-align: start;
+   
     align-items: flex-start;
   }
   
@@ -153,22 +140,16 @@
   }
   
   .heading {
-    font-size: 45px;
+    font-size:30px;
   }
   
   .new-menu-button-div {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
+    
+   
+    
     flex-direction: column;
-    -webkit-box-align: start;
-    -webkit-align-items: flex-start;
-    -ms-flex-align: start;
+   
+   
     align-items: flex-start;
   }
   
@@ -294,9 +275,7 @@
 
 
 .text-block-56-2 {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
+    
     display: flex;
     overflow: visible;
     width: 100%;
@@ -344,9 +323,10 @@ a {
 }
 
 ._52form {
-    width: 70%;
+    width:49%;
     margin-right: auto;
-    margin-left: auto;
+    margin-left: 21rem !important;
+       
 }
 
 .w-form {
@@ -359,6 +339,7 @@ form {
 }
 
 .map-div {
+    
     width: 100%;
     height: 150px;
     margin-bottom: 15px;
@@ -372,20 +353,38 @@ form {
 .input-box.rltv {
     position: relative;
     display: block;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
+  
     align-items: center;
 }
 
 .input-box {
     margin-bottom: 15px;
+   
+}
+
+.lab{
+    width: 100%;
+    position: relative;
+  
+}
+.double{
+    position: relative;
+    
+    width: 100%;
+}
+
+.dis{
+    margin-left: 12px;
 }
 
 label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
+}
+.field-label{
+    // margin-left: 31rem;
+    width: 13rem;
 }
 
 .search-loc {
@@ -440,8 +439,11 @@ label {
 }
 
 .field-label {
+    
+
     margin-bottom: 5px;
     color: #000;
+    
     font-size: 11px;
     font-weight: 800;
     letter-spacing: 2px;
@@ -450,8 +452,15 @@ label {
 
 label {
     display: block;
-    margin-bottom: 5px;
+   
     font-weight: bold;
+    margin-bottom: 5px;
+    color: #000;
+    
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
 .pos-modal-txt-field {
@@ -600,11 +609,88 @@ img {
     text-align: left;
 }
 
-.col-md-6{
-    position: relative;
-    left: 227px;
-}
 
 .bg-success:hover{
      background-color: #ffa332;
+}
+
+
+
+// my media css
+
+
+@media only screen and (max-width: 769px) {
+    ._52form {
+      margin-left: 12rem !important;
+    }
+  }
+ 
+@media only screen and (max-width: 426px) {
+    ._52form {
+        width: 73%;
+        margin-right: auto;
+        margin-left: 1rem !important;
+    }
+    #backimg{
+        width: 128%;
+    }
+    .map-div{
+        width: 128%;
+    }
+    .pad{
+        padding-left: 9rem;
+    }
+    .submit-button-container{
+        padding-left: 7rem;
+    }
+    .input-box.double {
+        display: inline-block;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .same{
+        width: 273%;
+    }
+    .field-label{
+        font-size: 23px;
+        width: 33rem;
+    }
+    .lab{
+        width: 136%;
+    }
+  }
+
+  @media only screen and (max-width:376px) {
+    ._52form {
+        width: 73%;
+        margin-right: auto;
+        margin-left: 1rem !important;
+    }
+    #backimg{
+        width: 143%;
+    }
+    .map-div{
+        width: 138%;
+    }
+    .pad{
+        padding-left: 8rem;
+    }
+}
+
+
+
+@media only screen and (max-width:321px) {
+    
+    #backimg{
+        width: 162%;
+    }
+    .map-div{
+        width: 161%;
+    }
+    .pad{
+        padding-left: 8rem;
+    }
+    .submit-button-container{
+        width: 113%;
+    }
 }

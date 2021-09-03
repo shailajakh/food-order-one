@@ -1,702 +1,261 @@
-
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light" style="height:50px ;">
-  <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <div class="logo">
-        <a class="navbar-brand" href="#"><img src="../../assets/logo-13.png" loading="lazy" width="80" height="80" alt=""></a>
-      </div>
-      <div class="nav-bar-items" >
-          <div class="nav-signle">
-            <a href="#" class="nav-link"><i class="fas fa-utensils"></i></a>
-          </div>
-          <div class="nav-signle">
-            <a href="offer-promotion" class="nav-link"><i class="fas fa-dollar-sign"></i></a>
-          </div>
-          <div class="nav-signle">
-            <a href="#" class="nav-link"><i class="fas fa-info-circle"></i></a>
-          </div>
-          <div class="nav-signle ">
-            <a href="cart-page" class="nav-link"><i class="fas fa-cart-plus"></i></a>
-            <div class="text-block-5">2</div>
-          </div>
-        </div>
-    </div>
-  </div>
-</nav>
-
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light" >
-  <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <a data-w-tab="Tab 1" (click)="tab='one'" class="stb w-inline-block w-tab-link w--current">
-        <div>1. TABLE BOOKING<span class="check"></span></div>
-      </a>
-      <a data-w-tab="Tab 2" (click)="tab='two'" class="stb w-inline-block w-tab-link">
-        <div>2. YOUR DETAIL<span class="check"></span></div>
-      </a>
-    </div>
-  </div>
-</nav>
-
-
-<body>
-  
-
-  <div *ngIf="tab=='one'" class="tale-booking">
-
-  <header class="header-sec">
-  <div class="logo"><img src="..//assets/visa-seeklogo.com.svg" loading="lazy" alt=""></div>
-  <h3 class="lg-heading">TABLE BOOKING</h3>
-
-  <div class="hedder-content tb">
-     <form [formGroup]="tBookingForm" (ngSubmit)="tBooking(tBookingForm.value)" class="form-3">
-      <div class="formGroup" >
-      <label for="FormControlPerson" ></label>
-      <select id="FormControlPerson" name="FormControlPerson" class="form-control field " formControlName="Person" required [(ngModel)]="person"  >
-        <option value="1">1 Person</option>
-        <option value="2">2 People</option>
-        <option value="3">3 People</option>
-        <option value="4">4 People</option>
-        <option value="5">5 People</option>
-        <option value="6">6 People</option>
-        <option value="7">7 People</option>
-        <option value="8">8 People</option>
-        <option value="9">9 People</option>
-        <option value="10">10 People</option>
-        <option value="11">11 People</option>
-        <option value="12">12 People</option>
-        <option value="13">14 People</option>
-        <option value="15">15 People</option>
-        <option value="16">16 People</option>
-        <option value="17">17 People</option>
-        <option value="18">18 People</option>
-        <option value="19">19 People</option>
-        <option value="20">20 People</option>
-      </select>
-
-      <label for="FormControlDate" ></label>
-      <input type="date" name="Date" class="form-control field" formControlName="Date" required [(ngModel)]="date">
-      
-      <label for="FormControlTime" ></label>
-      <select id="Time" name="Time" class="form-control field" formControlName="Time" required [(ngModel)]="time">
-        <option value="9:00 AM">9:00 AM</option>
-        <option value="9:30 AM">9:30 AM</option>
-        <option value="10:00 AM ">10:00 AM</option>
-        <option value="10:30 AM ">10:30 AM</option>
-        <option value="11:00 AM">11:00 AM</option>
-        <option value="11:30 AM ">11:30 AM</option>
-        <option value="12:00 PM ">12:00 PM</option>
-        <option value="12:30 PM ">12:30 PM</option>
-        <option value="1:00 PM ">1:00 PM</option>
-        <option value="1:30 PM ">1:30 PM</option>
-        <option value="2:00 PM ">2:00 PM</option>
-        <option value="2:30 PM ">2:30 PM</option>
-        <option value="3:00 P ">3:00 PM</option>
-        <option value="3:30 PM ">3:30 PM</option>
-        <option value="4:00 PM ">4:00 PM</option>
-        <option value="4:30 PM ">4:30 PM</option>
-        <option value="4:30 PM ">4:30 PM</option>
-        <option value="5:30 PM ">5:30 PM</option>
-        <option value="6:00 PM ">6:00 PM</option>
-        <option value="6:30 PM ">6:30 PM</option>
-        <option value="7:00 PM ">7:00 PM</option>
-        <option value="7:30 PM ">7:30 PM</option>
-        <option value="8:00 PM ">8:00 PM</option>
-        <option value="8:30 PM ">8:30 PM</option>
-        <option value="9:00 PM ">9:00 PM</option>
-        <option value="9:30 PM ">9:30 PM</option>
-        <option value="10:00 PM ">10:00 PM</option>
-        <option value="10:30 PM ">10:30 PM</option>
-        <option value="11:00 PM ">11:00 PM</option>
-        <option value="11:30 PM ">11:30 PM</option>
-      </select>
-
-      
-      <button type="submit" class="btn btn-primary w-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop1" [disabled]="tBookingForm.invalid">
-        BOOK NOW
-      </button>
-
-    </div>
-    </form> 
-  </div>
-</header>
-</div>
-
-
-<div *ngIf="tab=='two'" class="tabs-content-2 w-tab-content full">
-                    <div data-w-tab="Tab 1" class="res-tb-tab-content w-tab-pane" id="w-tabs-1-data-w-pane-0" role="tabpanel" aria-labelledby="w-tabs-1-data-w-tab-0">
-                      <div class="res-tb-mian1 tb-cntr">
-                        <div class="form-block-5 w-form">
-                          <form id="email-form-4" name="email-form-4" data-name="Email Form 4" class="form-3">
-                            <select id="field-10" name="field-10" class="res-tb-select-field person w-select">
-                            <option value="1">1 Person</option>
-                            <option value="2">2 People</option>
-                            <option value="3">3 People</option>
-                            <option value="4">4 People</option>
-                            <option value="5">5 People</option>
-                            <option value="6">6 People</option>
-                            <option value="7">7 People</option>
-                            <option value="8">8 People</option>
-                            <option value="9">9 People</option>
-                            <option value="10">10 People</option>
-                            <option value="11">11 People</option>
-                            <option value="12">12 People</option>
-                            <option value="13">14 People</option>
-                            <option value="15">15 People</option>
-                            <option value="16">16 People</option>
-                            <option value="17">17 People</option>
-                            <option value="18">18 People</option>
-                            <option value="19">19 People</option>
-                            <option value="20">20 People</option>
-                            </select><select id="field-10" name="field-10" class="res-tb-select-field w-select">
-                              <option value="">1 JAN 21</option>
-                            </select><select id="field-10" name="field-10" class="res-tb-select-field tme w-select">
-                              <option value="Default">Choose Time</option>
-                            <option value="9:00 AM">9:00 AM</option>
-                            <option value="9:30 AM">9:30 AM</option>
-                            <option value="10:00 AM ">10:00 AM</option>
-                            <option value="10:30 AM ">10:30 AM</option>
-                            <option value="11:00 AM">11:00 AM</option>
-                            <option value="11:30 AM ">11:30 AM</option>
-                            <option value="12:00 PM ">12:00 PM</option>
-                            <option value="12:30 PM ">12:30 PM</option>
-                            <option value="1:00 PM ">1:00 PM</option>
-                            <option value="1:30 PM ">1:30 PM</option>
-                            <option value="2:00 PM ">2:00 PM</option>
-                            <option value="2:30 PM ">2:30 PM</option>
-                            <option value="3:00 P ">3:00 PM</option>
-                            <option value="3:30 PM ">3:30 PM</option>
-                            <option value="4:00 PM ">4:00 PM</option>
-                            <option value="4:30 PM ">4:30 PM</option>
-                            <option value="4:30 PM ">4:30 PM</option>
-                            <option value="5:30 PM ">5:30 PM</option>
-                            <option value="6:00 PM ">6:00 PM</option>
-                            <option value="6:30 PM ">6:30 PM</option>
-                            <option value="7:00 PM ">7:00 PM</option>
-                            <option value="7:30 PM ">7:30 PM</option>
-                            <option value="8:00 PM ">8:00 PM</option>
-                            <option value="8:30 PM ">8:30 PM</option>
-                            <option value="9:00 PM ">9:00 PM</option>
-                            <option value="9:30 PM ">9:30 PM</option>
-                            <option value="10:00 PM ">10:00 PM</option>
-                            <option value="10:30 PM ">10:30 PM</option>
-                            <option value="11:00 PM ">11:00 PM</option>
-                            <option value="11:30 PM ">11:30 PM</option>
-                            </select>
-                            <a href="#" class="res-tb-submit w-button">BOOK NOW</a>
-                          </form>
-                          <div class="w-form-done">
-                            <div>Thank you! Your submission has been received!</div>
-                          </div>
-                          <div class="w-form-fail">
-                            <div>Oops! Something went wrong while submitting the form.</div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div data-w-tab="Tab 2" class="res-tb-tab-content _245 w-tab-pane w--tab-active" id="w-tabs-1-data-w-pane-1" role="tabpanel" aria-labelledby="w-tabs-1-data-w-tab-1">
-                      <div class="res-tb-mian2">
-                        
-                        <div class="tb-food-menu-mainlleft left">
-                          <div class="account-div-v2-2">
-                            <div class="text-block-24">Account</div>
-                            <div class="asap-button-div">
-                              <a href="#" class="button-cart login w-inline-block">
-                                <div class="text-block-8">Have an account?</div>
-                                <div class="text-block-9">SIGN IN</div>
-                              </a>
-                              <a href="#" class="button-cart signup gst w-inline-block">
-                                <div class="text-block-8">Check out as</div>
-                                <div class="text-block-9 guest">GUEST</div>
-                              </a>
-                              <a href="#" class="button-cart signup w-inline-block">
-                                <div class="text-block-8">New customer?</div>
-                                <div class="text-block-9">SIGN UP</div>
-                              </a>
-                            </div>
-                            <div class="text-block-23">Sign up and Join our membership program for discounts, customised promotions, loyalty programs and easy check-out.</div>
-                            <div class="description-img"><img src="https://uploads-ssl.webflow.com/5ffc0263a31c9e14f6073e1f/5ffc0263a31c9e1d8c073e38_wf3.jpg" loading="lazy" alt="" class="image-10"></div>
-                            <div class="text-block-23">Your phone number and other informations are safe and hidden in our software. It will be used for automated promotions, 1 click check-out and to serve you better. We are partnered with LOCAL MATE to manage your account.</div>
-                          </div>
-                        </div>
-                        <div class="tb-food-menu-mainlleft right">
-                          <div class="your-details-form w-form">
-                            <form [formGroup]="tableBookingForm" (ngSubmit)="tableBooking()"
-                            id="email-form-4" name="email-form-4" data-name="Email Form 4" class="form-3-yur-details">
-                            <div class="formGroup" >
-                              <div class="ur-details-input-div">
-                                <label for="FormControlName" ></label>
-                                <input type="text" formControlName="Name"
-                                class="form-control  w-input" maxlength="256" name="txtTbName" data-name="Txt Tb Name" placeholder="Name" id="txtTbName" required="">
-                              </div>
-                              <div class="ur-details-input-div">
-                                <label for="FormControlEmail"></label>
-                                <input type="email" class=" form-control  w-input" formControlName="Email" maxlength="256" name="txtTbMail" data-name="Txt Tb Mail" placeholder="you@email.com" id="txtTbMail" required="">
-                              </div>
-                              <div class="ur-details-input-div">
-                                <label for="FormControlMobile"></label>
-                                <input type="tel" class=" w-input" formControlName="Mobile" maxlength="15" name="txtTbContactNumber" data-name="Txt Tb Contact Number" placeholder="Mobile Number" id="txtTbContactNumber" required="">
-                              </div>
-                              <button class="btn btn-warning" type="button" (click)="requestOTP_TB(tableBookingForm.value.Name,tableBookingForm.value.Email,tableBookingForm.value.Mobile)" >SEND OTP</button>
-                            
-                              <div class="ur-details-input-div otp" *ngIf="showOtpfeild_otp">
-                                <input type="number" class=" w-input" maxlength="256" name="txtTbOTP" data-name="Txt Tb OTP" placeholder="Enter OTP" id="txtTbOTP" required=""></div>
-                              <div class="your-submit-notfication">
-                                <div class="notifotp-tb">We have sent an OTP to your Number&amp; E-mail</div>
-                                
-                              </div>
-                              <br>
-                              <a  class="your-details-submit-btn w-button"(click)="tableBooked()">BOOK NOW</a>
-                            </div><br>
-
-                              <div class="successfully-booked-tb" *ngIf="T_booked">
-                                <div class="text-block-27"><span class="faa">*</span>Successfully booked.</div>
-                                <div class="order-details-tb">
-                                  <div class="success-booked"><span class="faa">*</span>{{date}}</div>
-                                  <div class="success-booked"><span class="faa">*</span>{{time}}</div>
-                                  <div class="success-booked"><span class="faa">*</span>{{person}}</div>
-                                </div>
-                              </div>
-                              <div class="your-submit-notfication">
-                                <a href="#" class="text-block-28 w-button">Pre-order food and save waiting time at restaurant</a>
-                              </div>
-                            </form>
-                            <div class="w-form-done">
-                              <div>Thank you! Your submission has been received!</div>
-                            </div>
-                            <div class="w-form-fail">
-                              <div>Oops! Something went wrong while submitting the form.</div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-  
-
-
-
- <div class="modal fade booking" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
-  <div class="modal-dialog">
-     <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" >CONFORM BOOKING</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <div class="your-details-form w-form">
-            <form [formGroup]="tableBookingForm" (ngSubmit)="tableBooking()"
-               id="email-form-4" name="email-form-4" data-name="Email Form 4" class="form-3-yur-details">
-                 <div class="formGroup" >
-                    <div class="ur-details-input-div">
-                       <label for="FormControlName" ></label>
-                       <input type="text" formControlName="Name"
-                                        class="form-control w-input" maxlength="256" name="txtTbName"  placeholder="Name" id="txtTbName" required="">
-                    </div>
-                    <div class="ur-details-input-div">
-                       <label for="FormControlEmail"></label>
-                        <input type="email" class=" form-control  w-input" formControlName="Email" maxlength="256" name="FormControlEmail"  placeholder="you@email.com" id="FormControlEmail" required="">
-                    </div>
-                    <div class="ur-details-input-div">
-                       <label for="FormControlMobile"></label>
-                         <input type="tel" class=" form-control   w-input" formControlName="Mobile" maxlength="15" name="FormControlMobile"  placeholder="Mobile Number" id="FormControlMobile" required="">
-                    </div>
-                       <button class="your-details-submit-btn w-button" type="button" 
-                       (click)="requestOTP_TB(tableBookingForm.value.Name,tableBookingForm.value.Email,tableBookingForm.value.Mobile)" >BOOK NOW</button>
-                                    
-                    <br>
-                      
-                    <div class="ur-details-input-div" *ngIf="showOtpfeild_otp">
-                      <label for="FormControlOTP"></label>
-                      <input type="number" id="FormControlOTP" class="form-control w-input" maxlength="256" name="txtTbOTP" data-name="Txt Tb OTP" placeholder="Enter OTP" id="txtTbOTP" required=""><br>
-                      <div class="your-submit-notfication">
-                        <div class="notifotp-tb">We have sent an OTP to your Number&amp; E-mail</div>
-                                        
-                      </div>
-                         <br><div>
-                        <button class="your-details-submit-btn w-button"  (click)="tableBooked()">CONFORM BOOKING</button>
-                      </div>
-                    </div>
-                  </div><br>
-                                    
-        
-                                      <div class="successfully-booked-tb" *ngIf="T_booked">
-                                        <div class="text-block-27"><span class="faa">*</span>Successfully booked.</div>
-                                        <div class="order-details-tb">
-                                          <div class="success-booked"><span class="faa">*</span>Date:{{date}}</div>
-                                          <div class="success-booked"><span class="faa">*</span>Time:{{time}}</div>
-                                          <div class="success-booked"><span class="faa">*</span>No of Persons :{{person}}</div>
-                                        </div>
-                                      
-                                      <div class="your-submit-notfication">
-                                        <a href="#" class="text-block-28 w-button">Pre-order food and save waiting time at restaurant</a>
-                                      </div></div>
-                                    </form>
-                            <div class="w-form-done">
-                              <div>Thank you! Your submission has been received!</div>
-                            </div>
-                            <div class="w-form-fail">
-                              <div>Oops! Something went wrong while submitting the form.</div>
-                            </div>
-                          </div>
-                        
-                    </div>
-                    
-                  </div>
-                </div>
-                  </div>
-
-       <!-- mode window origional           -->
-       <!-- <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-              <h5 class="modal-title" id="staticBackdropLabel"></h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                
-                  <div class="your-details-form w-form">
-                    <form [formGroup]="tableBookingForm" (ngSubmit)="tableBooking()"
-                            id="email-form-4" name="email-form-4" data-name="Email Form 4" class="form-3-yur-details">
-                            <div class="formGroup" >
-                              <div class="ur-details-input-div">
-                                <label for="FormControlName" ></label>
-                                <input type="text" formControlName="Name"
-                                class="form-control  w-input" maxlength="256" name="txtTbName" data-name="Txt Tb Name" placeholder="Name" id="txtTbName" required="">
-                              </div>
-                              <div class="ur-details-input-div">
-                                <label for="FormControlEmail"></label>
-                                <input type="email" class=" form-control  w-input" formControlName="Email" maxlength="256" name="txtTbMail" data-name="Txt Tb Mail" placeholder="you@email.com" id="txtTbMail" required="">
-                              </div>
-                              <div class="ur-details-input-div">
-                                <label for="FormControlMobile"></label>
-                                <input type="tel" class=" w-input" formControlName="Mobile" maxlength="15" name="txtTbContactNumber" data-name="Txt Tb Contact Number" placeholder="Mobile Number" id="txtTbContactNumber" required="">
-                              </div>
-                              <button class="btn btn-warning" type="button" (click)="requestOTP_TB(tableBookingForm.value.Name,tableBookingForm.value.Email,tableBookingForm.value.Mobile)" >SEND OTP</button>
-                            
-                              <div class="ur-details-input-div otp" *ngIf="showOtpfeild_otp">
-                                <input type="number" class=" w-input" maxlength="256" name="txtTbOTP" data-name="Txt Tb OTP" placeholder="Enter OTP" id="txtTbOTP" required=""></div>
-                              <div class="your-submit-notfication">
-                                <div class="notifotp-tb">We have sent an OTP to your Number&amp; E-mail</div>
-                                
-                              </div>
-                              <br>
-                              <a  class="your-details-submit-btn w-button"(click)="tableBooked()">BOOK NOW</a>
-                            </div><br>
-
-                              <div class="successfully-booked-tb" *ngIf="T_booked">
-                                <div class="text-block-27"><span class="faa">*</span>Successfully booked.</div>
-                                <div class="order-details-tb">
-                                  <div class="success-booked"><span class="faa">*</span>{{date}}</div>
-                                  <div class="success-booked"><span class="faa">*</span>{{time}}</div>
-                                  <div class="success-booked"><span class="faa">*</span>No of Persons :{{person}}</div>
-                                </div>
-                              </div>
-                              <div class="your-submit-notfication">
-                                <a href="#" class="text-block-28 w-button">Pre-order food and save waiting time at restaurant</a>
-                              </div>
-                            </form>
-                    <div class="w-form-done">
-                      <div>Thank you! Your submission has been received!</div>
-                    </div>
-                    <div class="w-form-fail">
-                      <div>Oops! Something went wrong while submitting the form.</div>
-                    </div>
-                  </div>
-                
-            </div>
-            
-          </div>
-        </div>
-      </div> -->
-
-
-</body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <div class="menubox bg-img">
+<div class="menubox bg-img">
   <div class="main-content">
     <div class="tbooking-new1 ntable-booking-2">
       <div class="head-sectionmnu tbooking-head tpo">
-        <div class="logo"><img src="images/visa-seeklogo.com.svg" loading="lazy" alt=""></div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="logo"><img src="../../assets/visa-seeklogo.com.svg" loading="lazy" alt="">
+            </div>
+          </div>
+        </div>
+       
         <div class="single-food-name tbn23 _35">
-          <h2 class="heading">TABLE BOOKING</h2>
-        </div>
-        <div class="new-menu-button-div">
-          <a href="#" class="new-menu-button hide w-inline-block">
-            <div class="div-block-49">
-              <div class="text-block-39"></div>
-            </div>
-            <div class="text-block-37">TABLE BOOKING</div>
-          </a>
-          <a href="#" class="new-menu-button hide w-inline-block">
-            <div class="div-block-49">
-              <div class="text-block-39"></div>
-            </div>
-            <div class="text-block-37">MENU</div>
-          </a>
-          <a href="#" class="new-menu-button hide w-inline-block">
-            <div class="div-block-49">
-              <div class="text-block-39"></div>
-            </div>
-            <div class="text-block-37">OFFERS</div>
-          </a>
-          <a href="#" class="new-menu-button hide w-inline-block">
-            <div class="div-block-49">
-              <div class="text-block-39"></div>
-            </div>
-            <div class="text-block-37">DELIVERY CHARGES</div>
-          </a>
-        </div>
+          <p class=" text-center">TABLE BOOKING</p>
+        </div>  
       </div>
     </div>
-    <div class="menu-selector-tab">
-      <div class="res-tb-main _859">
-        <div class="tb-main-tab">
-          <div class="new-div-tb-details">
-            <div class="res-tb-mian1 tb-cntr ntbookng _5">
-              <div class="form-block-5 sml w-form">
-                <form id="email-form-4" name="email-form-4" data-name="Email Form 4" class="form-3 tb-new"><select id="field-10" name="field-10" class="res-tb-select-field person tb-new w-select">
+    
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+          <div class="card">
+            <form [formGroup]="tBookingForm" (ngSubmit)="tBooking(tBookingForm.value)" class="form-3">
+              <div class="formGroup" >
+              <label for="FormControlPerson" ></label>
+              <select id="FormControlPerson" name="FormControlPerson" class="form-control form-select mt-4" aria-label="Default select example" formControlName="Person" required [(ngModel)]="person"  >
+                <option value="1">1 Person</option>
+                <option value="2">2 People</option>
+                <option value="3">3 People</option>
+                <option value="4">4 People</option>
+                <option value="5">5 People</option>
+                <option value="6">6 People</option>
+                <option value="7">7 People</option>
+                <option value="8">8 People</option>
+                <option value="9">9 People</option>
+                <option value="10">10 People</option>
+                <option value="11">11 People</option>
+                <option value="12">12 People</option>
+                <option value="13">14 People</option>
+                <option value="15">15 People</option>
+                <option value="16">16 People</option>
+                <option value="17">17 People</option>
+                <option value="18">18 People</option>
+                <option value="19">19 People</option>
+                <option value="20">20 People</option>
+              </select>
+        
+              <label for="FormControlDate" ></label>
+              <input type="date" name="Date" class="form-control form-select mt-3" aria-label="Default select example" formControlName="Date" required [(ngModel)]="date">
+              
+              <label for="FormControlTime" ></label>
+              <select id="Time" name="Time" class="form-control form-select mt-3" aria-label="Default select example" formControlName="Time" required [(ngModel)]="time">
+                <option value="9:00 AM">9:00 AM</option>
+                <option value="9:30 AM">9:30 AM</option>
+                <option value="10:00 AM ">10:00 AM</option>
+                <option value="10:30 AM ">10:30 AM</option>
+                <option value="11:00 AM">11:00 AM</option>
+                <option value="11:30 AM ">11:30 AM</option>
+                <option value="12:00 PM ">12:00 PM</option>
+                <option value="12:30 PM ">12:30 PM</option>
+                <option value="1:00 PM ">1:00 PM</option>
+                <option value="1:30 PM ">1:30 PM</option>
+                <option value="2:00 PM ">2:00 PM</option>
+                <option value="2:30 PM ">2:30 PM</option>
+                <option value="3:00 P ">3:00 PM</option>
+                <option value="3:30 PM ">3:30 PM</option>
+                <option value="4:00 PM ">4:00 PM</option>
+                <option value="4:30 PM ">4:30 PM</option>
+                <option value="4:30 PM ">4:30 PM</option>
+                <option value="5:30 PM ">5:30 PM</option>
+                <option value="6:00 PM ">6:00 PM</option>
+                <option value="6:30 PM ">6:30 PM</option>
+                <option value="7:00 PM ">7:00 PM</option>
+                <option value="7:30 PM ">7:30 PM</option>
+                <option value="8:00 PM ">8:00 PM</option>
+                <option value="8:30 PM ">8:30 PM</option>
+                <option value="9:00 PM ">9:00 PM</option>
+                <option value="9:30 PM ">9:30 PM</option>
+                <option value="10:00 PM ">10:00 PM</option>
+                <option value="10:30 PM ">10:30 PM</option>
+                <option value="11:00 PM ">11:00 PM</option>
+                <option value="11:30 PM ">11:30 PM</option>
+              </select>
+        
+              <button type="submit" class="book btn mt-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop" [disabled]="tBookingForm.invalid">
+                BOOK NOW
+              </button>
+        
+            </div>
+            </form> 
+          </div>
+        </div>
+    </div>
+   
+ 
+  </div>
+</div>
+
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal-dialog modal-xl">
+  <div class="modal-content">
+
+    <div class="modal-body">
+      
+
+      <div class="tb-food-menu-mainlleft">
+        <div class="account-div-v2-2">
+          <div class="text-block-24">Booking Details</div>
+          <div class="edit-user-btn vertic25">
+            <div class="form-block-5 w-form">
+              <form [formGroup]="tBookingForm" (ngSubmit)="tBooking(tBookingForm.value)" id="email-form-4" name="email-form-4" data-name="Email Form 4" class="form-3 tb-new small-field-section">
+                <div class="formGroup div-block-62">
+                  <label for="FormControlPerson" ></label>
+                  <select id="FormControlPerson" name="FormControlPerson" class="form-control form-select mt-4" aria-label="Default select example" formControlName="Person" required [(ngModel)]="person"  >
                     <option value="1">1 Person</option>
                     <option value="2">2 People</option>
                     <option value="3">3 People</option>
                     <option value="4">4 People</option>
-                    <option value="Another Choice">5 People</option>
+                    <option value="5">5 People</option>
                     <option value="6">6 People</option>
-                    <option value="Another Choice">7 People</option>
-                    <option value="Another Choice">8 People</option>
-                    <option value="Another Choice">9 People</option>
-                    <option value="Another Choice">10 People</option>
-                    <option value="Another Choice">12 People</option>
-                    <option value="Another Choice">14 People</option>
-                    <option value="Another Choice">15 People</option>
-                    <option value="Another Choice">16 People</option>
-                    <option value="Another Choice">17 People</option>
-                    <option value="Another Choice">18 People</option>
-                    <option value="Another Choice">19 People</option>
-                    <option value="Another Choice">20 People</option>
-                  </select><select id="field-10" name="field-10" class="res-tb-select-field tb-new w-select">
-                    <option value="">1 JAN 21</option>
-                  </select><select id="field-10" name="field-10" class="res-tb-select-field tme tb-new w-select">
-                    <option value="Another Choice">9:00 AM</option>
-                    <option value="Another Choice">9:30 AM</option>
-                    <option value="Another Choice">10:00 AM</option>
-                    <option value="Another Choice">10:30 AM</option>
-                    <option value="Another Choice">11:00 AM</option>
-                    <option value="Another Choice">11:30 AM</option>
-                    <option value="Another Choice">12:00 PM</option>
-                    <option value="Another Choice">12:30 PM</option>
-                    <option value="Another Choice">1:00 PM</option>
-                    <option value="Another Choice">1:30 PM</option>
-                    <option value="Another Choice">2:00 PM</option>
-                    <option value="Another Choice">2:30 PM</option>
-                    <option value="Another Choice">3:00 PM</option>
-                    <option value="Another Choice">3:30 PM</option>
-                    <option value="Another Choice">4:00 PM</option>
-                    <option value="Another Choice">4:30 PM</option>
-                    <option value="Another Choice">5:00 PM</option>
-                    <option value="Another Choice">5:30 PM</option>
-                    <option value="Another Choice">6:00 PM</option>
-                    <option value="Another Choice">6:30 PM</option>
-                    <option value="Another Choice">7:00 PM</option>
-                    <option value="Another Choice">7:30 PM</option>
-                    <option value="Another Choice">8:00 PM</option>
-                    <option value="Another Choice">8:30 PM</option>
-                    <option value="Another Choice">9:00 PM</option>
-                    <option value="Another Choice">9:30 PM</option>
-                    <option value="Another Choice">10:00 PM</option>
-                    <option value="Another Choice">10:30 PM</option>
-                    <option value="Another Choice">11:00 PM</option>
-                    <option value="Another Choice">11:30 PM</option>
+                    <option value="7">7 People</option>
+                    <option value="8">8 People</option>
+                    <option value="9">9 People</option>
+                    <option value="10">10 People</option>
+                    <option value="11">11 People</option>
+                    <option value="12">12 People</option>
+                    <option value="13">14 People</option>
+                    <option value="15">15 People</option>
+                    <option value="16">16 People</option>
+                    <option value="17">17 People</option>
+                    <option value="18">18 People</option>
+                    <option value="19">19 People</option>
+                    <option value="20">20 People</option>
                   </select>
-                  <a data-w-id="5153ddb6-d164-e6ad-437a-435439917c0c" href="#" class="res-tb-submit w-button">BOOK NOW</a>
-                </form>
-                <div class="w-form-done">
-                  <div>Thank you! Your submission has been received!</div>
+            
+                  <label for="FormControlDate" ></label>
+                  <input type="date" name="Date" class="form-control form-select mt-3" aria-label="Default select example" formControlName="Date" required [(ngModel)]="date">
+                  
+                  <label for="FormControlTime" ></label>
+                  <select id="Time" name="Time" class="form-control form-select mt-3" aria-label="Default select example" formControlName="Time" required [(ngModel)]="time">
+                    <option value="9:00 AM">9:00 AM</option>
+                    <option value="9:30 AM">9:30 AM</option>
+                    <option value="10:00 AM ">10:00 AM</option>
+                    <option value="10:30 AM ">10:30 AM</option>
+                    <option value="11:00 AM">11:00 AM</option>
+                    <option value="11:30 AM ">11:30 AM</option>
+                    <option value="12:00 PM ">12:00 PM</option>
+                    <option value="12:30 PM ">12:30 PM</option>
+                    <option value="1:00 PM ">1:00 PM</option>
+                    <option value="1:30 PM ">1:30 PM</option>
+                    <option value="2:00 PM ">2:00 PM</option>
+                    <option value="2:30 PM ">2:30 PM</option>
+                    <option value="3:00 P ">3:00 PM</option>
+                    <option value="3:30 PM ">3:30 PM</option>
+                    <option value="4:00 PM ">4:00 PM</option>
+                    <option value="4:30 PM ">4:30 PM</option>
+                    <option value="4:30 PM ">4:30 PM</option>
+                    <option value="5:30 PM ">5:30 PM</option>
+                    <option value="6:00 PM ">6:00 PM</option>
+                    <option value="6:30 PM ">6:30 PM</option>
+                    <option value="7:00 PM ">7:00 PM</option>
+                    <option value="7:30 PM ">7:30 PM</option>
+                    <option value="8:00 PM ">8:00 PM</option>
+                    <option value="8:30 PM ">8:30 PM</option>
+                    <option value="9:00 PM ">9:00 PM</option>
+                    <option value="9:30 PM ">9:30 PM</option>
+                    <option value="10:00 PM ">10:00 PM</option>
+                    <option value="10:30 PM ">10:30 PM</option>
+                    <option value="11:00 PM ">11:00 PM</option>
+                    <option value="11:30 PM ">11:30 PM</option>
+                  </select>
                 </div>
-                <div class="w-form-fail">
-                  <div>Oops! Something went wrong while submitting the form.</div>
+                <div>
+                  <div class="text-block-24">Special Request</div>
+                  <textarea placeholder="Special Requests" maxlength="5000" id="field-11" name="field-11" class="w-input"></textarea>
                 </div>
+              </form>
+              <div class="w-form-done">
+                <div>Thank you! Your submission has been received!</div>
               </div>
-            </div>
-            <div class="res-tb-mian2 hide hd2" style="display: none; opacity: 0;">
-              <div class="tb-food-menu-mainlleft">
-                <div class="account-div-v2-2">
-                  <div class="text-block-24">Booking Details</div>
-                  <div class="edit-user-btn vertic25">
-                    <div class="form-block-5 w-form">
-                      <form id="email-form-4" name="email-form-4" data-name="Email Form 4" class="form-3 tb-new small-field-section">
-                        <div class="div-block-62"><select id="field-10" name="field-10" class="res-tb-select-field person tb-new small-field w-select">
-                            <option value="1">1 Person</option>
-                            <option value="2">2 People</option>
-                            <option value="3">3 People</option>
-                            <option value="4">4 People</option>
-                            <option value="Another Choice">5 People</option>
-                            <option value="6">6 People</option>
-                            <option value="Another Choice">7 People</option>
-                            <option value="Another Choice">8 People</option>
-                            <option value="Another Choice">9 People</option>
-                            <option value="Another Choice">10 People</option>
-                            <option value="Another Choice">12 People</option>
-                            <option value="Another Choice">14 People</option>
-                            <option value="Another Choice">15 People</option>
-                            <option value="Another Choice">16 People</option>
-                            <option value="Another Choice">17 People</option>
-                            <option value="Another Choice">18 People</option>
-                            <option value="Another Choice">19 People</option>
-                            <option value="Another Choice">20 People</option>
-                          </select><select id="field-10" name="field-10" class="res-tb-select-field tb-new small-field w-select">
-                            <option value="">1 JAN 21</option>
-                          </select><select id="field-10" name="field-10" class="res-tb-select-field tme tb-new small-field w-select">
-                            <option value="Another Choice">9:00 AM</option>
-                            <option value="Another Choice">9:30 AM</option>
-                            <option value="Another Choice">10:00 AM</option>
-                            <option value="Another Choice">10:30 AM</option>
-                            <option value="Another Choice">11:00 AM</option>
-                            <option value="Another Choice">11:30 AM</option>
-                            <option value="Another Choice">12:00 PM</option>
-                            <option value="Another Choice">12:30 PM</option>
-                            <option value="Another Choice">1:00 PM</option>
-                            <option value="Another Choice">1:30 PM</option>
-                            <option value="Another Choice">2:00 PM</option>
-                            <option value="Another Choice">2:30 PM</option>
-                            <option value="Another Choice">3:00 PM</option>
-                            <option value="Another Choice">3:30 PM</option>
-                            <option value="Another Choice">4:00 PM</option>
-                            <option value="Another Choice">4:30 PM</option>
-                            <option value="Another Choice">5:00 PM</option>
-                            <option value="Another Choice">5:30 PM</option>
-                            <option value="Another Choice">6:00 PM</option>
-                            <option value="Another Choice">6:30 PM</option>
-                            <option value="Another Choice">7:00 PM</option>
-                            <option value="Another Choice">7:30 PM</option>
-                            <option value="Another Choice">8:00 PM</option>
-                            <option value="Another Choice">8:30 PM</option>
-                            <option value="Another Choice">9:00 PM</option>
-                            <option value="Another Choice">9:30 PM</option>
-                            <option value="Another Choice">10:00 PM</option>
-                            <option value="Another Choice">10:30 PM</option>
-                            <option value="Another Choice">11:00 PM</option>
-                            <option value="Another Choice">11:30 PM</option>
-                          </select></div>
-                        <div>
-                          <div class="text-block-24">Special Request</div><textarea placeholder="Special Requests" maxlength="5000" id="field-11" name="field-11" class="w-input"></textarea>
-                        </div>
-                      </form>
-                      <div class="w-form-done">
-                        <div>Thank you! Your submission has been received!</div>
-                      </div>
-                      <div class="w-form-fail">
-                        <div>Oops! Something went wrong while submitting the form.</div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="text-block-24">Account</div>
-                  <div class="asap-button-div">
-                    <a data-w-id="cad21b43-368a-5807-4277-2278d9e38f20" href="#" class="button-cart login w-inline-block">
-                      <div class="text-block-8">Have an account?</div>
-                      <div class="text-block-9">SIGN IN</div>
-                    </a>
-                    <a data-w-id="cad21b43-368a-5807-4277-2278d9e38f2a" href="#" class="button-cart signup w-inline-block">
-                      <div class="text-block-8">New customer?</div>
-                      <div class="text-block-9">SIGN UP</div>
-                    </a>
-                  </div>
-                  <div class="card-signed-user-details">
-                    <div><span class="user-icon"></span>Signed in as <strong>John Doe</strong></div>
-                  </div>
-                  <div class="text-block-23">Sign up and Join our membership program for discounts, customised promotions, loyalty programs and easy check-out.</div>
-                  <div class="description-img"><img src="https://uploads-ssl.webflow.com/5ffc0263a31c9e14f6073e1f/5ffc0263a31c9e1d8c073e38_wf3.jpg" loading="lazy" alt="" class="image-10"></div>
-                  <div class="text-block-23">Your phone number and other informations are safe and hidden in our software. It will be used for automated promotions, 1 click check-out and to serve you better. We are partnered with LOCAL MATE to manage your account.</div>
-                </div>
-              </div>
-              <div class="tb-food-menu-mainlleft">
-                <div class="your-details-form w-form">
-                  <form id="email-form-4" name="email-form-4" data-name="Email Form 4" class="form-3-yur-details _2s fgxhdcrfdhuy">
-                    <div class="text-block-24 fl">Check out as a guest</div>
-                    <div class="ur-details-input-div"><input type="text" class=" w-input" maxlength="256" name="txtTbName-2" data-name="Txt Tb Name 2" placeholder="Name" id="txtTbName-2" required=""></div>
-                    <div class="ur-details-input-div"><input type="email" class=" w-input" maxlength="256" name="txtTbMail-2" data-name="Txt Tb Mail 2" placeholder="you@email.com" id="txtTbMail-2" required=""></div>
-                    <div class="ur-details-input-div"><input type="tel" class=" w-input" maxlength="256" name="txtTbContactNumber-2" data-name="Txt Tb Contact Number 2" placeholder="+123 456 7890" id="txtTbContactNumber-2" required=""></div>
-                    <a href="cart-page-table-booking-new.html" class="your-details-submit-btn w-button">BOOK NOW</a>
-                    <div class="ur-details-input-div otp"><input type="number" class=" otp2 w-input" maxlength="256" name="txtTbOTP-2" data-name="Txt Tb OTP 2" placeholder="Enter OTP" id="txtTbOTP-2" required="">
-                      <a href="#" class="otp-btn w-button">SUBMIT</a>
-                      <a href="#" class="otp-btn back w-button">BACK</a>
-                    </div>
-                    <div class="your-submit-notfication">
-                      <div class="notifotp-tb">We have sent an OTP to your Number&amp; E-mail</div>
-                      <div class="notifotpwrong-tb">Incorrect OTP. <a href="#">Resend OTP</a>
-                      </div>
-                    </div>
-                    <div class="successfully-booked-tb">
-                      <div class="text-block-27"><span class="faa"></span>Successfully booked.</div>
-                      <div class="order-details-tb">
-                        <div class="success-booked"><span class="faa"></span>20-01-2021</div>
-                        <div class="success-booked"><span class="faa"></span>10:30 AM</div>
-                        <div class="success-booked"><span class="faa"></span>3 People</div>
-                      </div>
-                    </div>
-                    <div class="your-submit-notfication">
-                      <a href="table-booking-menu.html" class="text-block-28 w-button">Pre-order food and save waiting time at restaurant</a>
-                    </div>
-                  </form>
-                  <div class="w-form-done">
-                    <div>Thank you! Your submission has been received!</div>
-                  </div>
-                  <div class="w-form-fail">
-                    <div>Oops! Something went wrong while submitting the form.</div>
-                  </div>
-                </div>
+              <div class="w-form-fail">
+                <div>Oops! Something went wrong while submitting the form.</div>
               </div>
             </div>
           </div>
+          <div class="text-block-24">Account</div>
+          <div id="asa"class="asap-button-div">
+            <a data-w-id="cad21b43-368a-5807-4277-2278d9e38f20" class="button-cart login w-inline-block">
+              <div class="text-block-8">Have an account?</div>
+              <div class="text-block-9">SIGN IN</div>
+            </a>
+            <a data-w-id="cad21b43-368a-5807-4277-2278d9e38f2a" class="button-cart signup w-inline-block">
+              <div class="text-block-8">New customer?</div>
+              <div class="text-block-9">SIGN UP</div>
+            </a>
+          </div>
+          <div class="card-signed-user-details">
+            <div><span class="user-icon"></span>Signed in as <strong>{{"NAME"}}</strong></div>
+          </div>
+          <div class="text-block-23">Sign up and Join our membership program for discounts, customised promotions, loyalty programs and easy check-out.</div>
+          <div class="description-img"><img src="https://uploads-ssl.webflow.com/5ffc0263a31c9e14f6073e1f/5ffc0263a31c9e1d8c073e38_wf3.jpg" loading="lazy" alt="" class="image-10"></div>
+          <div class="text-block-23">Your phone number and other informations are safe and hidden in our software. It will be used for automated promotions, 1 click check-out and to serve you better. We are partnered with LOCAL MATE to manage your account.</div>
+        </div>
+      </div>
+
+
+
+      <div id="mainleft" class="tb-food-menu-mainlleft">
+        <div class="your-details-form w-form">
+          <form [formGroup]="tableBookingForm" (ngSubmit)="tableBooking()" id="email-form-4" name="email-form-4" data-name="Email Form 4" class="form-3-yur-details _2s fgxhdcrfdhuy">
+            <div class="formGroup" >
+
+
+            <div class="text-block-24 fl">Check out as a guest</div>
+            <div class="ur-details-input-div">
+              <label for="FormControlName" ></label>
+              <input type="text" formControlName="Name"
+              class="form-control  w-input" maxlength="256" name="txtTbName" data-name="Txt Tb Name" placeholder="Name" id="txtTbName" required="">
+            </div>
+            <div class="ur-details-input-div">
+              <label for="FormControlEmail"></label>
+              <input type="email" class=" form-control  w-input" formControlName="Email" maxlength="256" name="txtTbMail" data-name="Txt Tb Mail" placeholder="you@email.com" id="txtTbMail" required="">
+            </div>
+            <div class="ur-details-input-div">
+              <label for="FormControlMobile"></label>
+              <input type="tel" class=" w-input" formControlName="Mobile" maxlength="15" name="txtTbContactNumber" data-name="Txt Tb Contact Number" placeholder="Mobile Number" id="txtTbContactNumber" required="">
+            </div>
+
+            <a  class="your-details-submit-btn w-button"(click)="tableBooked()" >BOOK NOW</a>
+            <div class="ur-details-input-div otp"  >
+              <input type="number" class="ur-details-input-field otp2 w-input" maxlength="256" name="txtTbOTP-2" data-name="Txt Tb OTP 2" placeholder="Enter OTP" id="txtTbOTP-2" required="">
+              <a class="otp-btn w-button" (click)="requestOTP_TB(tableBookingForm.value.Name,tableBookingForm.value.Email,tableBookingForm.value.Mobile)" >SUBMIT</a>
+              <a class="otp-btn w-button" routerLink="">BACK</a>
+            </div>
+            <div class="your-submit-notfication">
+              <div class="notifotp-tb">We have sent an OTP to your Number&amp; E-mail</div>
+              <div class="notifotpwrong-tb">Incorrect OTP. <a (click)="requestOTP_TB(tableBookingForm.value.Name,tableBookingForm.value.Email,tableBookingForm.value.Mobile)">Resend OTP</a>
+              </div>
+            </div>
+            <div class="successfully-booked-tb" *ngIf="T_booked">
+              <div class="text-block-27"><span class="faa">*</span>Successfully booked.</div>
+              <div class="order-details-tb">
+                <div class="success-booked"><span class="faa">*</span>DATE : {{date}}</div><br>
+                <div class="success-booked"><span class="faa">*</span>TIME : {{time}}</div><br>
+                <div class="success-booked"><span class="faa">*</span>No Of Persons :{{person}}</div><br>
+              </div>
+            </div>
+            <div class="your-submit-notfication mt-3">
+              <a routerLink="" class="text-block-28 w-button">Pre-order food and save waiting time at restaurant</a>
+            </div>
+          </div>
+          </form>
         </div>
       </div>
     </div>
   </div>
-</div> -->
+</div>
+</div>

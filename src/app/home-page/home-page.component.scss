@@ -501,13 +501,16 @@ img {
 
 
 .div-block-46 {
- 
-  margin-left: -3rem !important;
-  margin-top: -3px;
+  top:100px;
+  left: -8rem;
+  bottom: 37rem !important;
+  bottom: auto;
   z-index: 999999999;
+  
   overflow: hidden;
   width: 300px;
   height: auto;
+  margin-top: 16px;
   padding-right: 0px;
   padding-bottom: 0px;
   padding-left: 0px;
@@ -846,154 +849,6 @@ display: flex;
 text-decoration: none;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-// @media only screen and (max-width:1440px) {
- 
-// .cart{
-//  display: none;
-// }
-// }
-
-
-// @media only screen and (max-width:1024px) {
-//   #backimg {
-//    width:105%;
-//   }
-// .slid{
-// width: 107%;
-// }
-
-
-// }
-
-// @media only screen and (max-width:768px) {
- 
-//   .imgs{
-//     width: 113%;
-//     position: relative;
-//     right: 47px;
-//   }
-//   .cart{
-//     display:block;
-//   }
-  
-//   .cart{
-//     display:block !important;
-//   }
-//   .full{
-//     width: 163%;
-//   }
-// }
-
-
-// @media only screen and (max-width:425px) {
- 
-//   .div-block-46{
-//     position: fixed;
-//     margin-left: 11rem;
-//     margin-top: 4rem;
-//   }
-//   .cart{
-//     display:block !important;
-//   }
-// }
-
-
-
-
-
-// @media only screen and (max-width:375px) {
-//  .ndivcloswe{
-//    width: 28rem;
-//  }
-//  .head-sectionmnu{
-//    width: 119% !important;
-//  }
-//  .slid{
-//    width: 121%;
-//  }
-//  .imgs{
-//    width: 136%;
-//  }
- 
-//  .check{
-//   width: 31rem;
-//  }
-//  .cart{
-//   display:block !important;
-// }
-// .full{
-//   width: 64%;
-// }
-// .card{
-//   width: 58%;
-//   max-height: 366px;
-// }
-//   }
-
-//   @media only screen and (max-width:375px) {
-    
-//     .head-sectionmnu{
-//       width: 139% !important;
-//     }
-//     .slid{
-//       width: 143%;
-//     }
-//     .cart{
-//       display:block !important;
-//     }
-   
-//   }
-
-
-
-
-
-
-
-
-
-
-
-
-// @media only screen and (max-width:320px) {
-//   .ndivcloswe {
-//    width: 445px;
-//   }
-//   .close-copym{
-//     position: relative;
-//     left: auto;
-//     top: -15px;
-//     right: -8px;
-//   }
-//   .top-notif-div{
-//     font-size: 24px;
-//   }
-//   .head-sectionmnu{
-//     width: 452px;
-//   }
-//   .slider{
-//     width: 469px;
-//   }
-//   .border-0{
-//     width: 403px;
-//     position: relative;
-//     right: 29px;
-//   }
-//  .check{
-//    width: 26rem;
-//  }
-// }
 
 
 // repeted
@@ -3285,6 +3140,11 @@ input[type=number]::-webkit-outer-spin-button {
   .cart{
    display: none;
   }
+  .price{
+    margin-left: 40px;
+  }
+  
+
   }
   
   
@@ -3295,8 +3155,11 @@ input[type=number]::-webkit-outer-spin-button {
   .slid{
   width: 107%;
   }
+  .cart{
+    display: none;
+   }
   .price{
-    margin-left: 12px;
+    margin-left: 40px;
   }
   
   
@@ -3323,7 +3186,7 @@ input[type=number]::-webkit-outer-spin-button {
       display:block !important;
     }
     .price{
-      margin-left: 12px;
+      margin-left: 25px;
     }
   }
   
@@ -5021,7 +4884,7 @@ input[type=number]::-webkit-outer-spin-button {
   color: orange;
   position: relative;
   float: right;
-  margin-left: 38px;
+  margin-left: 55px;
 }
 
 .card-title{
@@ -5162,7 +5025,7 @@ input[type=number]::-webkit-outer-spin-button {
 @media only screen and (max-width:769px) {
     
   .price{
-    margin-left: 12px;
+    margin-left: 15px;
   }
 }
 
@@ -5232,69 +5095,6 @@ input[type=number]::-webkit-outer-spin-button {
 // @media screen and (min-width:1024px){
   
 //      .card-footer{
-
-//      width: 234px;
-//   }
-//   #backimg{
-//     width: 100%;
-//   }
-  
-//   }
-
-//   @media screen and (min-width:768px){
-
-//     .card-footer{
-
-//     width: 171px;
-//  }
- 
-//  }
-
-
-//  @media screen and (min-width:425px){
-  
-//   #backimg{
-
-//   width: 100%;
-// }
-
-// }
-
-
-//  @media screen and (min-width:375px){
-  
-// .card-footer{
-//   width: auto !important;
-// }
-// #backimg{
-//   width:100%;
-// }
-// // .media{
-// //   width: 109%;
-// // }
-
-// }
-
-//  @media screen and (min-width:320px){
-  
-//   .card-footer{
-
-//   width: 307px;
-// }
-// .new-menu-button-div{
-//   position: relative;
-//   width: 50%;
-//   height: 23rem;
-//   top: 8rem;
-//   right: 7rem;
-// }
-// .heading{
-//   position: relative;
-//   bottom: 7rem;
-//   left: 5rem;
-// }
-// }
-// cart css
 
 
 
@@ -5569,4 +5369,17 @@ position: fixed !important;
   margin-left: 12px;
 }
 
+}
+
+.pointer{
+  cursor: pointer;
+}
+
+.collapse{
+  position: relative;
+  width: 250px;
+  height: 100px;
+  left:150px;
+  top:-100px
+  
 }

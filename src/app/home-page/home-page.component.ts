@@ -38,7 +38,7 @@ export class HomePageComponent implements OnInit {
   totalarray: any;
   Array1: any;
   inputCurrentNumber_Opt: any=0;
-  constructor(private apiserviceService: ApiserviceService, private localStorage: TokenStorageService, private _homedataService: HomedataService, private homefoodtypeService: HomefoodtypeService,private storage: StorageLocalService,private router: Router,private Lstoreage: StorageLocalService,private formBuilder: FormBuilder) {
+  constructor(private apiserviceService: ApiserviceService, private localStorage: TokenStorageService, private _homedataService: HomedataService, private homefoodtypeService: HomefoodtypeService,private router: Router,private Lstoreage: StorageLocalService,private formBuilder: FormBuilder) {
       this.ManageOrderItemForm = this.formBuilder.group({
         orders: new FormArray([])
     });
@@ -47,13 +47,13 @@ export class HomePageComponent implements OnInit {
 
   
 initilize(){
-  this.inputCurrentNumber=(this.inputCurrentNumber==undefined||0||null)?1:1;
-  this.inputCurrentNumberC_Opt=(this.inputCurrentNumberC_Opt==undefined||0||null)?1:1;
-  this.inputCurrentNumber_C_req=(this.inputCurrentNumber_C_req==undefined||0||null)?1:1;
-  this.inputCurrentNumberF_Opt=(this.inputCurrentNumberF_Opt==undefined||0||null)?1:1;
-  this.inputCurrentNumber_f_req=(this.inputCurrentNumber_f_req==undefined||0||null)?1:1;
-    this.inputCurrentNumber_Opt=(this.inputCurrentNumber_Opt==undefined||0||null)?1:1;
-    this.inputCurrentNumber_T = (this.inputCurrentNumber_T==undefined||0||null)?1:1;
+  this.inputCurrentNumber=(this.inputCurrentNumber==undefined||0||null)?0:0;
+  this.inputCurrentNumberC_Opt=(this.inputCurrentNumberC_Opt==undefined||0||null)?0:0;
+  this.inputCurrentNumber_C_req=(this.inputCurrentNumber_C_req==undefined||0||null)?0:0;
+  this.inputCurrentNumberF_Opt=(this.inputCurrentNumberF_Opt==undefined||0||null)?0:0;
+  this.inputCurrentNumber_f_req=(this.inputCurrentNumber_f_req==undefined||0||null)?0:0;
+    this.inputCurrentNumber_Opt=(this.inputCurrentNumber_Opt==undefined||0||null)?0:0;
+    this.inputCurrentNumber_T = (this.inputCurrentNumber_T==undefined||0||null)?0:0;
 }
   
 
@@ -109,32 +109,33 @@ initilize(){
   FoodTypes=[];
   CombineItems=[];
 
-  orderinsert1: any = {
+  orderinsert0: any = {
 
   };
   varAddOns = false;
   varFoodTypes = false;
   varCombineItems = false;
   orderArray=[];
-  inputCurrentNumber_T:any=1;
+  inputCurrentNumber_T:any=0;
   ADD_item(id: any,item) {
     this.close_model=true;
     this.varAddOns = false;
     this.varFoodTypes = false;
     this.varCombineItems = false;
     this.add_to_cart=false;
-    this.inputCurrentNumber_T = (this.inputCurrentNumber_T==undefined||0||null)?1:1;
+    this.inputCurrentNumber_T = (this.inputCurrentNumber_T==undefined||0||null)?0:0;
+    this.inputCurrentNumber_T = document.getElementById(item.ID) as HTMLInputElement;
+    this.inputCurrentNumber_T = 0;
     this.initilize();
     this.closecollapse=false;
     this.mainpopUp(id);
     this.orderArray.push(item);
     //console.log(this.orderArray);
-
   }
 
   entered_ADD_no_Addtocart(item){
 
-    //this.orderArray.splice(this.orderArray.indexOf(item.id), 1);
+    //this.orderArray.splice(this.orderArray.indexOf(item.id), 0);
     //console.log(this.orderArray);
   }
 
@@ -233,8 +234,12 @@ initilize(){
   totalArray=[];
   item_Total:number=0;
   close_model=false;
+  varsubmitcart=false;
+
   submitcart(){
 
+
+   this.varsubmitcart=true;
   this.add_to_cart=true;
      // this.Calculate_Total();
       this.OrderDetails.push(this.orderArray);
@@ -367,11 +372,11 @@ initilize(){
   
   getReqSpinnerValues(item: any) {
     
-    this.inputCurrentNumber=(this.inputCurrentNumber==undefined||0||null)?1:1;
+    this.inputCurrentNumber=(this.inputCurrentNumber==undefined||0||null)?0:0;
     console.log("befor",this.inputCurrentNumber);
     this.inputCurrentNumber = Number((document.getElementById(item.ID) as HTMLInputElement).value);
     console.log("befor",this.inputCurrentNumber);
-    this.inputCurrentNumber = (this.inputCurrentNumber==undefined||0||null)?1:this.inputCurrentNumber;
+    this.inputCurrentNumber = (this.inputCurrentNumber==undefined||0||null)?0:this.inputCurrentNumber;
     this.inputCurrentNumber=Number(this.inputCurrentNumber);
     
     let data = { number: this.inputCurrentNumber, id: item.ID ,price: item.Price,amount:(this.inputCurrentNumber*Number(item.Price))}
@@ -489,7 +494,7 @@ initilize(){
   }
   getOptSpinnerValues(item: any) {
     
-    this.inputCurrentNumber_Opt=(this.inputCurrentNumber_Opt==undefined||0||null)?1:1;
+    this.inputCurrentNumber_Opt=(this.inputCurrentNumber_Opt==undefined||0||null)?0:0;
 
     this.inputCurrentNumber_Opt = ((document.getElementById(item.ID) as HTMLInputElement).value);
     this.inputCurrentNumber = (this.inputCurrentNumber==undefined||0||null)?1:this.inputCurrentNumber;
@@ -606,7 +611,7 @@ onChangeFoodReq(item, isChecked: boolean,addonItem) {
 }
 FgetReqSpinnerValues(item: any) {
   
-  this.inputCurrentNumber_f_req=(this.inputCurrentNumber_f_req==undefined||0||null)?1:1;
+  this.inputCurrentNumber_f_req=(this.inputCurrentNumber_f_req==undefined||0||null)?0:0;
   
   this.inputCurrentNumber_f_req = ((document.getElementById(item.ID) as HTMLInputElement).value);
   this.inputCurrentNumber = (this.inputCurrentNumber==undefined||0||null)?1:this.inputCurrentNumber;
@@ -723,7 +728,7 @@ onChangeFoodOpt(item, isChecked: boolean,addonItem) {
 }
 FgetOptSpinnerValues(item: any) {
   
-  this.inputCurrentNumberF_Opt=(this.inputCurrentNumberF_Opt==undefined||0||null)?1:1;
+  this.inputCurrentNumberF_Opt=(this.inputCurrentNumberF_Opt==undefined||0||null)?0:0;
     
   this.inputCurrentNumberF_Opt = ((document.getElementById(item.ID) as HTMLInputElement).value);
   this.inputCurrentNumber = (this.inputCurrentNumber==undefined||0||null)?1:this.inputCurrentNumber;
@@ -842,7 +847,7 @@ onChangeComboReq(item, isChecked: boolean,addonItem) {
 inputCurrentNumber_C_req:any;
 CgetReqSpinnerValues(item: any) {
   
-  this.inputCurrentNumber_C_req=(this.inputCurrentNumber_C_req==undefined||0||null)?1:1;
+  this.inputCurrentNumber_C_req=(this.inputCurrentNumber_C_req==undefined||0||null)?0:0;
  
   this.inputCurrentNumber_C_req = ((document.getElementById(item.ID) as HTMLInputElement).value);
   this.inputCurrentNumber = (this.inputCurrentNumber==undefined||0||null)?1:this.inputCurrentNumber;
@@ -976,7 +981,7 @@ onChangeComboOpt(item, isChecked: boolean,addonItem) {
 inputCurrentNumberC_Opt:any=0;
 CgetOptSpinnerValues(item: any) {
   
-  this.inputCurrentNumberC_Opt=(this.inputCurrentNumberC_Opt==undefined||0||null)?1:1;
+  this.inputCurrentNumberC_Opt=(this.inputCurrentNumberC_Opt==undefined||0||null)?0:0;
 
   this.inputCurrentNumberC_Opt = ((document.getElementById(item.ID) as HTMLInputElement).value);
   this.inputCurrentNumber = (this.inputCurrentNumber==undefined||0||null)?0:this.inputCurrentNumber;
@@ -1032,6 +1037,8 @@ CgetOptSpinnerValues(item: any) {
   }
 
   RemoveFoodTypeOrder(id) {
+
+
     this.sendDataToFoodTypeList.splice(this.sendDataToFoodTypeList.indexOf(id), 1);
   }
 
@@ -1060,13 +1067,14 @@ basePrice:Number;
       this.baseID=i.ID;
       this.basePrice=i.Price;
       this.baseName=i.Name;
+      this.baseTotal=0;
       this.itemTotal=0;
       if(i.addons){
         for(let j of i.addons)
         {
           this.addonPrice=Number(j.amount);
-          this.itemTotal=this.itemTotal+Number(j.amount)
-          
+          this.itemTotal=this.itemTotal+(Number(j.amount) * Number(j.NumberOfitem));
+
         }
         console.log("addon total:",this.itemTotal);
       }
@@ -1074,15 +1082,15 @@ basePrice:Number;
       if(i.foodType){
         for(let k of i.foodType)
         {
-
           this.fdtypePrice=Number(k.amount);
           this.basePrice=Number(k.amount);
           if(k.amount==0 )
           {
-            this.itemTotal=this.itemTotal + Number(i.Price);
+            this.itemTotal=this.itemTotal + (Number(i.Price)* Number(k.NumberOfitem));
+            console.log("foodtype total:foodtype coast is 0",this.itemTotal);
           }
           else{
-            this.itemTotal=this.itemTotal+Number(k.amount);
+            this.itemTotal=this.itemTotal+(Number(k.amount)* Number(k.NumberOfitem));
           }
           
         }
@@ -1093,19 +1101,48 @@ basePrice:Number;
         for(let l of i.CombType)
         {
           this.CombType=Number(l.amount);
-          this.itemTotal=this.itemTotal+Number(l.amount)
+          this.itemTotal=this.itemTotal+(Number(l.amount)** Number(l.NumberOfitem));
         }
         console.log("extra total:",this.itemTotal);
       }
       else{}
-      console.log("itemTotal total:",this.itemTotal);
-      this.baseTotal=this.itemTotal;
+
       if(this.itemTotal==0)
       {
         this.itemTotal = Number(i.Price);
+        console.log("itemTotal total:",this.itemTotal);
       }
-      let data={id:this.baseID,name:this.baseName,eachTotal:this.itemTotal};
-      this.DispNew.push(data);
+     
+
+      setTimeout(() => {'' }, 1000)
+      if((this.inputCurrentNumber_T > 1)  )
+      {
+        console.log("inside this.inputCurrentNumber_T > 1")
+        this.closecollapse=true;
+     //   while(this.isSubmitted==false) {}
+        console.log("comes ou of while",this.isSubmitted)
+        setTimeout(() => {'' }, 1000)
+          if(this.customizForm.value=="same_c"){
+            console.log("same customize=>");
+            let data={id:this.baseID,name:this.baseName,eachTotal:(this.itemTotal*this.inputCurrentNumber_T)};
+            this.DispNew.push(data);
+            console.log("same customize=>data",data);
+            console.log("same customize=>DispNew",this.DispNew);
+          }
+          else if(this.customizForm.value=="diff_c")
+          {
+            let data={id:this.baseID,name:this.baseName,eachTotal:(this.itemTotal*this.inputCurrentNumber_T)};
+            this.DispNew.push(data);
+
+          }
+          else{}
+      }
+      else if((this.inputCurrentNumber_T == 1)  && (this.varsubmitcart==true) ){
+        console.log("inside this.inputCurrentNumber_T ==1")
+        let data={id:this.baseID,name:this.baseName,eachTotal:(this.itemTotal*1)};
+        this.DispNew.push(data);         
+      }
+      else{}
     }  
     
     console.log("display array:",this.DispNew)
@@ -1119,56 +1156,7 @@ basePrice:Number;
     return (this.itemTotal);
   }
 
-  extraPrice=0;
-//   Calculate_Total(){
-
-//     // addons
-//     // foodType
-//     // CombType
-//     let A_sum = 0;let F_sum = 0;let C_sum = 0;let T_sum=0;
-//     this.itemTotal=0;
-
-    
-//     for(let i of this.orderArray)
-//     {
-//       this.basePrice=Number(i.Price);
-//       console.log("basePrice",this.basePrice)
-//       this.addonPrice=0;
-//       if(i.addons){
-//         for(let j of i.addons)
-//         {
-         
-//             this.addonPrice=+this.addonPrice + +Number(j.amount);
-         
-//         }
-//       }
-//       else{}
-//       if(i.foodType){
-//         for(let j of i.foodType)
-//         {
-//           this.fdtypePrice=Number(j.price);
-//           if(j.price!=="0"){
-//           this.basePrice=Number(j.price);
-//           }
-         
-//         }
-//       }else{}
-//       if(i.CombType){
-//         for(let j of i.CombType)
-//         {
-//          // this.extraPrice=Number(j.price);
-//           this.extraPrice=+this.extraPrice + +Number(j.amount);
-         
-//         }
-//       }else{}
-//     }    
-//  this.totalPrice= +this.basePrice + +this.addonPrice + +this.extraPrice;
- 
-//  console.log("total of all base",this.basePrice);
-//     console.log("total of all",this.totalPrice);
-//    this.Lstoreage.setData("totalPrice",this.totalPrice)
-
-//   }
+  quantity:any=0;
 
   TOTAL_ALL:any=0;
   T_ARRAY:any[]=[];
@@ -1176,12 +1164,26 @@ basePrice:Number;
   quantity_model:any;
   DispNew:any=[];
   previd:any;
+  spinnerVal : number = 0;
+  
   getTotalSpinnerValues(item: any) {
     
 
-    this.inputCurrentNumber_T = (this.inputCurrentNumber_T==undefined||0||null)?1:1;
+    console.log("total Quantity?",this.inputCurrentNumber_T)
+    this.inputCurrentNumber_T = (this.inputCurrentNumber_T==undefined||0||null)?0:0;
     this.inputCurrentNumber_T = Number((document.getElementById(item.ID) as HTMLInputElement).value);  
+   
+    
+  //  debugger;
+   // this.Lstoreage.setData("quantity",this.inputCurrentNumber_T);
 
+    if(this.inputCurrentNumber_T < 1)
+    {
+    this.closecollapse=false;
+    }else{
+      this.closecollapse=true;
+    }
+    this.Cal_Price_item(this.orderArray);
   }
 
 
@@ -1215,7 +1217,7 @@ temp(item: any){
   
   }
   else{
-    this.inputCurrentNumber_T = (this.inputCurrentNumber_T==undefined||0||null)?1:1;
+    this.inputCurrentNumber_T = (this.inputCurrentNumber_T==undefined||0||null)?0:0;
     
     let data = {id: item.ID ,number: this.inputCurrentNumber_T,price: item.Price,amount:Number(this.inputCurrentNumber_T)*Number(item.Price) }
     this.totalPrice =Number(this.inputCurrentNumber_T)*Number(item.Price);
@@ -1263,7 +1265,11 @@ temp(item: any){
   closecollapse=false;
   customize()  {
     
+
     this.isSubmitted = true;
+    this.spinnerVal =1;
+    
+  
     if(this.customizForm.valid) {
       console.log(this.customizForm.value);
       return(this.customizForm.value)
@@ -1271,7 +1277,6 @@ temp(item: any){
       console.log(this.myForm.errors?.required);
     }
 
-    this.closecollapse=false;
   } 
   
 
